@@ -26,9 +26,11 @@
 <!-- Url Base para uso no javascript -->
 <script> var base_url = "<%=request.getContextPath()%>" </script>
 <!-- Script geral -->
-<script src="<%=request.getContextPath()%>/view/admin/assets/assets/public/general.js"></script>
+<script src="<%=request.getContextPath()%>/view/admin/assets/public/general.js"></script>
 <!-- Scripts adicionais -->
-<!--TODO: Adicionar mecanísmo de scripts adicionais -->
+<% for(String script: (String[])request.getAttribute("scripts"))	{ %>
+	<script src="<%= request.getContextPath()  %>/view/admin/assets/public/<%=script %>"></script>
+<%}%>
 
 </body>
 </html>

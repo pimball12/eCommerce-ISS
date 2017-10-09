@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- TODO: Mecânica de título da página -->
-  <title>Titulo::Titulo  </title>
+  <title>${page_title} :: ${page_description}   </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -14,8 +13,9 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="<%=request.getContextPath()%>/view/admin/assets/plugins/ionicons/css/ionicons.min.css">
   <!-- Styles adicionais -->
-
-  <!--TODO: Mecânica de Styles próprios da página -->
+  <% for(String style: (String[])request.getAttribute("styles"))	{ %> 
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/view/admin/assets/<%= style %>">
+  <%}%>
 
   <!-- Theme style -->
   <link rel="stylesheet" href="<%=request.getContextPath()%>/view/admin/assets/dist/css/AdminLTE.min.css">
@@ -141,10 +141,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <!--TODO: Adicionar mecanismo de título da página -->
-        Título da Página
-        <!--TODO: Adicionar mecanismo de descrição da página -->
-        <small>Descricao da página</small>
+        ${page_title}
+        <small>${page_description}</small>
       </h1>
       <!-- TODO: Adicionar breadcump se for mostrado necessário. -->
     </section>

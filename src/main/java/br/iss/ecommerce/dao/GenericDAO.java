@@ -68,7 +68,11 @@ public class GenericDAO<Entity> {
 			throw error;
 		} finally	{
 			
-			session.close();
+			// Por estarmos utilizando FetchType.LAZY, as consultas são feitas em tempo
+			// real quando chamamos as classes relacionadas. Assim, a sessão deve ser 
+			// fechada apenas após a utilização dos itens da consulta. O mesmo se aplica
+			// à find().
+			//session.close();
 		}
 	}
 	
@@ -93,7 +97,7 @@ public class GenericDAO<Entity> {
 			throw error;
 		} finally	{
 			
-			session.close();
+//			session.close();
 		}		
 	}
 	
