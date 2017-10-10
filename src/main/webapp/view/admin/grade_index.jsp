@@ -1,6 +1,8 @@
+<%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <jsp:include page="/view/admin/partial/header.jsp"/>
 <%@page import="br.iss.ecommerce.domain.Grade"%>
+<% List<Grade> grades = (ArrayList<Grade>)request.getAttribute("grades"); %>
 
 <div class="row">
 	<div class="col-md-12">
@@ -24,7 +26,7 @@
 							<th colspan="2"></th>
 		            	</tr>
 
-						<% for(Grade grade : (ArrayList<Grade>)request.getAttribute("grades")) { %>
+						<% for(Grade grade : grades) { %>
 		            	<tr>
 							<td> <%= grade.getId() %> </td>
 							<td> <%= grade.getNome() %> </td>

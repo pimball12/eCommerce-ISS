@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.Hibernate;
+
 import br.iss.ecommerce.dao.GradeDAO;
 import br.iss.ecommerce.domain.Grade;
+import br.iss.ecommerce.util.HibernateUtil;
 
 @WebServlet("/adm/grade")
 public class Grade_Index extends HttpServlet {
@@ -37,6 +40,9 @@ public class Grade_Index extends HttpServlet {
 		
 		// Chama a View.
 		request.getRequestDispatcher("/view/admin/grade_index.jsp").forward(request, response);
+		
+		// Fecha a sessao do hibernate.
+		HibernateUtil.getSessionFactory().getCurrentSession().close();
 	}
 
 }
