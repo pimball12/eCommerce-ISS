@@ -28,8 +28,16 @@ public class Grade_Index extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		
 		// Passa as informações básicas da página.
-		request.setAttribute("page_title", 			"Grades");
-		request.setAttribute("page_description", 	"Listagem de Grades.");		
+		request.setAttribute("page_title", 				"Grades");
+		request.setAttribute("page_description", 		"Listagem de Grades.");		
+		
+		// Passa os parâmetros do modal de delete.
+		request.setAttribute("delete_modal_message",	"Deseja realmente excluír a grade e todos os seus itens ?");
+		request.setAttribute("delete_modal_url",		"/adm/grade/delete");
+		
+		// Passa os scripts necessários.
+		String[] scripts = {"delete_button.js"};
+		request.setAttribute("scripts", scripts);
 		
 		// Recupera as grades.
 		GradeDAO gradeDAO = new GradeDAO();

@@ -35,10 +35,11 @@
 								<span class="label label-primary">Editar</span>
 							</a></td>
 							
-							<td><a href="<%= 	request.getAttribute("base_url") + 
-												"/adm/grade/delete?id=" + grade.getId() %>">
-								<span class="label label-danger" >Excluir</span>
-							</a></td>							
+							<td>
+								<a href="#">
+								<span id=" <%= grade.getId() %> " class="label label-danger delete_button" data-toggle="modal" data-target="#delete_modal">
+								Excluir</span>	
+							</a></td>						
 						</tr>
 						<% } %>
 		          </tbody>
@@ -48,4 +49,5 @@
 	</div>
 </div>
 
+<jsp:include page="/view/admin/partial/delete_modal.jsp"/>
 <jsp:include page="/view/admin/partial/footer.jsp"/>
