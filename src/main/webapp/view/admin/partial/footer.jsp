@@ -18,18 +18,20 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 2.2.3 -->
-<script src="<%=request.getContextPath()%>/view/admin/assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="<%= request.getAttribute("base_url") %>/view/admin/assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="<%=request.getContextPath()%>/view/admin/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="<%= request.getAttribute("base_url") %>/view/admin/assets/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
-<script src="<%=request.getContextPath()%>/view/admin/assets/dist/js/app.min.js"></script>
+<script src="<%= request.getAttribute("base_url") %>/view/admin/assets/dist/js/app.min.js"></script>
 <!-- Url Base para uso no javascript -->
-<script> var base_url = "<%=request.getContextPath()%>" </script>
+<script> var base_url = "<%= request.getAttribute("base_url") %>" </script>
 <!-- Script geral -->
-<script src="<%=request.getContextPath()%>/view/admin/assets/public/general.js"></script>
+<script src="<%= request.getAttribute("base_url") %>/view/admin/assets/public/general.js"></script>
 <!-- Scripts adicionais -->
-<% for(String script: (String[])request.getAttribute("scripts"))	{ %>
-	<script src="<%= request.getContextPath()  %>/view/admin/assets/public/<%=script %>"></script>
+<% if (request.getAttribute("scripts") != null) { %>
+<% for(String script: (String[])request.getAttribute("scripts"))  { %>
+  <script src="<%=  request.getAttribute("base_url")   %>/view/admin/assets/public/<%=script %>"></script>
+<%}%>
 <%}%>
 
 </body>

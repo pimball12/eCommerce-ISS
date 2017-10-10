@@ -1,4 +1,6 @@
+<%@page import="java.util.ArrayList"%>
 <jsp:include page="/view/admin/partial/header.jsp"/>
+<%@page import="br.iss.ecommerce.domain.Grade"%>
 
 <div class="row">
 	<div class="col-md-12">
@@ -7,7 +9,9 @@
 				<h3 class="box-title"> Grades Cadastradas </h3>
 				<div class="box-tools">
 					<div class="form-group">
-						<a href="#"><button class="btn btn-success">Cadastrar</button></a>
+						<a href="<%= request.getAttribute("base_url") + "/adm/grade/create" %> "><button class="btn btn-success">
+							Cadastrar
+						</button></a>
 					</div>
 				</div>
 			</div>
@@ -17,25 +21,24 @@
 		            	<tr>
 							<th>Código</th>
 							<th>Nome</th>
-							<th colspan="3"></th>
+							<th colspan="2"></th>
 		            	</tr>
 
+						<% for(Grade grade : (ArrayList<Grade>)request.getAttribute("grades")) { %>
 		            	<tr>
-							<td>1</td>
-							<td>Cor</td>
+							<td> <%= grade.getId() %> </td>
+							<td> <%= grade.getNome() %> </td>
 							
-							<td><a href="#">
+							<td><a href="<%= request.getAttribute("base_url") + "/adm/grade/edit?id=" + grade.getId() %>">
 								<span class="label label-primary">Editar</span>
 							</a></td>
 							
-							<td><a href="#">
+							<td><a href="<%= 	request.getAttribute("base_url") + 
+												"/adm/grade/delete?id=" + grade.getId() %>">
 								<span class="label label-danger" >Excluir</span>
-							</a></td>
-							
-							<td><a href="#">
-								<span class="label label-success" >Valores</span>
 							</a></td>							
 						</tr>
+						<% } %>
 		          </tbody>
 		        </table>	
 	        </div>	

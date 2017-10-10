@@ -1,6 +1,7 @@
 package br.iss.ecommerce.servlet.adm;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.iss.ecommerce.dao.GenericDAO;
-import br.iss.ecommerce.domain.Endereco;
+import br.iss.ecommerce.dao.GradeDAO;
+import br.iss.ecommerce.domain.Grade;
 
 @WebServlet("/adm/grade")
 public class Grade_Index extends HttpServlet {
@@ -21,21 +22,18 @@ public class Grade_Index extends HttpServlet {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		Endereco endereco = new Endereco();
-		endereco.setRua("Umuarama");
-		request.setAttribute("teste", endereco);		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		
 		// Passa as informações básicas da página.
 		request.setAttribute("page_title", 			"Grades");
 		request.setAttribute("page_description", 	"Listagem de Grades.");		
 		
-//		String[] scripts = {"hello", "world"};
-//		request.setAttribute("scripts", scripts);
-//		
-//		String[] styles = {"hello", "world"};
-//		request.setAttribute("styles", styles);
+		// Recupera as grades.
+		GradeDAO gradeDAO = new GradeDAO();
+		List<Grade> grades = gradeDAO.list();
+		
+		// Passa os dados para a view.
+		request.setAttribute("grades", grades);
 		
 		// Chama a View.
 		request.getRequestDispatcher("/view/admin/grade_index.jsp").forward(request, response);

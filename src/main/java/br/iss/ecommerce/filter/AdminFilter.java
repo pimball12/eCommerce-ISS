@@ -1,7 +1,7 @@
 package br.iss.ecommerce.filter;
 
 import java.io.IOException;
-import javax.servlet.DispatcherType;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -9,39 +9,39 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 
 /**
- * Servlet Filter implementation class GenericFilter
+ * Servlet Filter implementation class AdminFilter
  */
-@WebFilter(
-	dispatcherTypes = {
-		DispatcherType.REQUEST, 
-		DispatcherType.FORWARD, 
-		DispatcherType.INCLUDE, 
-		DispatcherType.ERROR
-	}, 
-	urlPatterns = { "/adm/*" }
-)
+@WebFilter("/adm/*")
 public class AdminFilter implements Filter {
 
-    public AdminFilter() {}
+    public AdminFilter() {
+    }
 
-	public void destroy() {}
+	public void destroy() {
+	}
 
+	/**
+	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
+	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
-		// Array vazia de arquivos .js a serem importados pelo view.
-		String[] scripts = {};
-		request.setAttribute("scripts", scripts);
-
-		// Array vazia de arquivos .css a serem importados pelo view.
-		String[] styles = {};
-		request.setAttribute("styles", styles);
+		// Converte a requisição.
+		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		
-		// Passa a requisição para frente.
+		// Passa a variável correpondente à URL básica do site.
+		request.setAttribute("base_url", 	request.getScheme() + "://" + 
+											request.getServerName() + ":" + 
+											request.getServerPort() + 
+											httpRequest.getContextPath());
+
+		// pass the request along the filter chain
 		chain.doFilter(request, response);
 	}
 
-	public void init(FilterConfig fConfig) throws ServletException {}
+	public void init(FilterConfig fConfig) throws ServletException {
+	}
 
 }

@@ -9,41 +9,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.iss.ecommerce.domain.Endereco;
+
 /**
- * Servlet implementation class Test
+ * Não roda, só pra gravar os exemplos.
  */
 @WebServlet("/test")
 public class Test extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor. 
-     */
     public Test() {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see Servlet#init(ServletConfig)
-	 */
-	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see Servlet#destroy()
-	 */
-	public void destroy() {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		String x = (String)request.getParameter("num");
 		response.getWriter().append("Served located " + x + " at: ").append(request.getContextPath());
+		
+		// Passar um objeto.
+  		Endereco endereco = new Endereco();
+  		endereco.setRua("Umuarama");
+  		request.setAttribute("teste", endereco);			
+		
+  		// Passar arquivos .js ou .css 
+  		String[] scripts = {"hello", "world"};
+  		request.setAttribute("scripts", scripts);
+  		
+  		String[] styles = {"hello", "world"};
+  		request.setAttribute("styles", styles);
 	}
 
 }

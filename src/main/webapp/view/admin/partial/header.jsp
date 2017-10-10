@@ -7,22 +7,25 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="<%=request.getContextPath()%>/view/admin/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<%= request.getAttribute("base_url") %>/view/admin/assets/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="<%=request.getContextPath()%>/view/admin/assets/plugins/Font-Awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<%= request.getAttribute("base_url") %>/view/admin/assets/plugins/Font-Awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="<%=request.getContextPath()%>/view/admin/assets/plugins/ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="<%= request.getAttribute("base_url") %>/view/admin/assets/plugins/ionicons/css/ionicons.min.css">
+  
   <!-- Styles adicionais -->
+  <% if (request.getAttribute("styles") != null) { %>
   <% for(String style: (String[])request.getAttribute("styles"))	{ %> 
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/view/admin/assets/<%= style %>">
+    <link rel="stylesheet" href="<%=  request.getAttribute("base_url")  %>/view/admin/assets/<%= style %>">
+  <%}%>
   <%}%>
 
   <!-- Theme style -->
-  <link rel="stylesheet" href="<%=request.getContextPath()%>/view/admin/assets/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="<%= request.getAttribute("base_url") %>/view/admin/assets/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. -->
-  <link rel="stylesheet" href="<%=request.getContextPath()%>/view/admin/assets/dist/css/skins/skin-black-light.min.css">
+  <link rel="stylesheet" href="<%= request.getAttribute("base_url") %>/view/admin/assets/dist/css/skins/skin-black-light.min.css">
   <!-- Style Geral -->
-  <link rel="stylesheet" href="<%=request.getContextPath()%>/view/admin/assets/public/general.css">
+  <link rel="stylesheet" href="<%= request.getAttribute("base_url") %>/view/admin/assets/public/general.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -67,7 +70,7 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="<%=request.getContextPath()%>" class="logo">
+    <a href="<%= request.getAttribute("base_url") %>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>B</b>S</span>
       <!-- logo for regular state and mobile devices -->
@@ -88,14 +91,14 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="<%=request.getContextPath()%>/view/admin/assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="<%= request.getAttribute("base_url") %>/view/admin/assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">Renato <!--TODO: Adicionar aqui nome de usuário logado. --></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="<%=request.getContextPath()%>/view/admin/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<%= request.getAttribute("base_url") %>/view/admin/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
                   <!--TODO: Adicinar aqui nome de usuário logado -->
@@ -109,7 +112,7 @@
                 </div>
                 <div class="pull-right">
                   <!--TODO: Adicionar aqui link para deslogamento de usuário -->
-                  <a href="<%=request.getContextPath()%>" class="btn btn-default btn-flat">Sair</a>
+                  <a href="<%= request.getAttribute("base_url") %>" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
@@ -129,7 +132,7 @@
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
         <!-- TODO: Adicionar mecanismo para definir se a treeview vai estar aberta ou não -->
-        <li class="active"><a href="<%=request.getContextPath()%>/adm/grade"><i class="fa fa-anchor"></i> <span>Grades</span></a></li>
+        <li class="active"><a href="<%= request.getAttribute("base_url") %>/adm/grade"><i class="fa fa-anchor"></i> <span>Grades</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
