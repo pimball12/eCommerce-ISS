@@ -7,10 +7,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.Sort;
 
 @SuppressWarnings("serial")
 @Entity
@@ -21,6 +23,7 @@ public class Grade extends GenericDomain {
 	private String nome;
 	
 	@OneToMany(mappedBy="grade", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@OrderBy("id")
 	private Set<ItemGrade> itensGrade;
 
 	public String getNome() {

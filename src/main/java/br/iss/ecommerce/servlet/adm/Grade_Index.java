@@ -15,8 +15,9 @@ import br.iss.ecommerce.dao.GradeDAO;
 import br.iss.ecommerce.domain.Grade;
 import br.iss.ecommerce.util.HibernateUtil;
 
+
 @WebServlet("/adm/grade")
-public class Grade_Index extends HttpServlet {
+public final class Grade_Index extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
         
@@ -48,9 +49,6 @@ public class Grade_Index extends HttpServlet {
 		
 		// Chama a View.
 		request.getRequestDispatcher("/view/admin/grade_index.jsp").forward(request, response);
-		
-		// Fecha a sessao do hibernate.
-		HibernateUtil.getSessionFactory().getCurrentSession().close();
 	}
 
 }
