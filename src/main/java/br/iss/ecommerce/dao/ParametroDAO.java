@@ -12,7 +12,7 @@ import br.iss.ecommerce.domain.Parametro;
 import br.iss.ecommerce.util.HibernateUtil;
 
 public class ParametroDAO extends GenericDAO<Parametro> {
-	public Parametro getFirstOrDefault(Long codigo)	{
+	public Parametro getFirstOrDefault()	{
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
@@ -22,7 +22,6 @@ public class ParametroDAO extends GenericDAO<Parametro> {
 			CriteriaQuery<Parametro> query = builder.createQuery(currentClass);
 			Root<Parametro> root = query.from(currentClass);  
 			query.select(root);
-			query.where(builder.equal(root.get("codigo"), codigo));
 			Parametro result = session.createQuery(query).getSingleResult();
 			return result;
 		} catch(NoResultException error)	{
@@ -32,8 +31,7 @@ public class ParametroDAO extends GenericDAO<Parametro> {
 			
 			throw error;
 		} finally	{
-			
-//			session.close();
+			session.close();
 		}		
 	}
 }

@@ -14,6 +14,7 @@ import org.hibernate.Hibernate;
 import br.iss.ecommerce.dao.GradeDAO;
 import br.iss.ecommerce.dao.ParametroDAO;
 import br.iss.ecommerce.domain.Grade;
+import br.iss.ecommerce.domain.Parametro;
 import br.iss.ecommerce.util.HibernateUtil;
 
 @WebServlet("/adm/parametro")
@@ -32,15 +33,11 @@ public class Parametro_Index extends HttpServlet {
 		request.setAttribute("page_description", 	"Parametros gerais do sistema.");		
 		
 		ParametroDAO parametroDAO = new ParametroDAO();
-		List<Grade> grades = parametroDAO.();
-		
-		// Passa os dados para a view.
-		request.setAttribute("grades", grades);
-		
-		// Chama a View.
-		request.getRequestDispatcher("/view/admin/grade_index.jsp").forward(request, response);
-		
-		// Fecha a sessao do hibernate.
+		Parametro parametro = parametroDAO.getFirstOrDefault();
+
+		request.setAttribute("parametro", parametro);
+		request.getRequestDispatcher("/view/admin/parametro_index.jsp").forward(request, response);
+
 		HibernateUtil.getSessionFactory().getCurrentSession().close();
 	}
 

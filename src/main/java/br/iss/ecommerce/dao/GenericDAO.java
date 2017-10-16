@@ -15,7 +15,7 @@ import br.iss.ecommerce.util.HibernateUtil;
 
 public class GenericDAO<Entity> {
 	
-	private Class<Entity> currentClass;
+	public Class<Entity> currentClass;
 	
 	@SuppressWarnings("unchecked")
 	public GenericDAO()	{
