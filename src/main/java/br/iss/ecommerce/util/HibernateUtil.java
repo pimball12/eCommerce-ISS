@@ -12,10 +12,24 @@ public class HibernateUtil {
     private static SessionFactory sf;
     
     private static StandardServiceRegistry registry;
+    
+    private static Session lastSession; 
 
     public static Session getSession() {
     	
-        return getSessionFactory().openSession();
+    	lastSession = getSessionFactory().openSession();
+        return lastSession;
+    }
+    
+    public static boolean closeLastSession()	{
+    	
+    	if (lastSession != null)	{
+    		
+    		lastSession.close();
+    		return true;
+    	}
+    	
+    	return false;
     }
 
     public static SessionFactory getSessionFactory() {

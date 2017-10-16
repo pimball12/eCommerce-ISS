@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.hibernate.Hibernate;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -92,6 +91,7 @@ public class GradeDaoTest {
 	}
 	
 	@Test
+	@Ignore
 	public void list()	{
 		
 		GradeDAO gradeDAO = new GradeDAO();

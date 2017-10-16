@@ -18,7 +18,7 @@ public class ItemGrade extends GenericDomain {
 	@Column(name="VALOR", length=50)
 	private String valor;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="GRADE_ID", nullable=false)
 	private Grade grade;
 

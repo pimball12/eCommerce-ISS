@@ -15,8 +15,9 @@ import br.iss.ecommerce.dao.GradeDAO;
 import br.iss.ecommerce.domain.Grade;
 import br.iss.ecommerce.util.HibernateUtil;
 
+
 @WebServlet("/adm/grade")
-public class Grade_Index extends HttpServlet {
+public final class Grade_Index extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
         
@@ -28,8 +29,16 @@ public class Grade_Index extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		
 		// Passa as informações básicas da página.
-		request.setAttribute("page_title", 			"Grades");
-		request.setAttribute("page_description", 	"Listagem de Grades.");		
+		request.setAttribute("page_title", 				"Grades");
+		request.setAttribute("page_description", 		"Listagem de Grades.");		
+		
+		// Passa os parâmetros do modal de delete.
+		request.setAttribute("delete_modal_message",	"Deseja realmente excluír a grade e todos os seus itens ?");
+		request.setAttribute("delete_modal_url",		"/adm/grade/delete");
+		
+		// Passa os scripts necessários.
+		String[] scripts = {"delete_button.js"};
+		request.setAttribute("scripts", scripts);
 		
 		// Recupera as grades.
 		GradeDAO gradeDAO = new GradeDAO();
@@ -40,9 +49,6 @@ public class Grade_Index extends HttpServlet {
 		
 		// Chama a View.
 		request.getRequestDispatcher("/view/admin/grade_index.jsp").forward(request, response);
-		
-		// Fecha a sessao do hibernate.
-		HibernateUtil.getSessionFactory().getCurrentSession().close();
 	}
 
 }

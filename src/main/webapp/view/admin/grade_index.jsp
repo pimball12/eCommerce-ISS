@@ -1,8 +1,5 @@
-<%@page import="java.util.List"%>
-<%@page import="java.util.ArrayList"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/view/admin/partial/header.jsp"/>
-<%@page import="br.iss.ecommerce.domain.Grade"%>
-<% List<Grade> grades = (ArrayList<Grade>)request.getAttribute("grades"); %>
 
 <div class="row">
 	<div class="col-md-12">
@@ -26,21 +23,21 @@
 							<th colspan="2"></th>
 		            	</tr>
 
-						<% for(Grade grade : grades) { %>
+						<c:forEach var="grade" items="${grades}">
 		            	<tr>
-							<td> <%= grade.getId() %> </td>
-							<td> <%= grade.getNome() %> </td>
+							<td> ${grade.getId()} </td>
+							<td> ${grade.getNome()} </td>
 							
-							<td><a href="<%= request.getAttribute("base_url") + "/adm/grade/edit?id=" + grade.getId() %>">
+							<td><a href="${base_url}/adm/grade/edit?id=${grade.getId()}">
 								<span class="label label-primary">Editar</span>
 							</a></td>
 							
-							<td><a href="<%= 	request.getAttribute("base_url") + 
-												"/adm/grade/delete?id=" + grade.getId() %>">
-								<span class="label label-danger" >Excluir</span>
-							</a></td>							
+							<td><a href="#">
+								<span id="${grade.getId()}" class="label label-danger delete_button" data-toggle="modal" data-target="#delete_modal">
+								Excluir</span>	
+							</a></td>						
 						</tr>
-						<% } %>
+						</c:forEach>
 		          </tbody>
 		        </table>	
 	        </div>	
@@ -48,4 +45,5 @@
 	</div>
 </div>
 
+<jsp:include page="/view/admin/partial/delete_modal.jsp"/>
 <jsp:include page="/view/admin/partial/footer.jsp"/>

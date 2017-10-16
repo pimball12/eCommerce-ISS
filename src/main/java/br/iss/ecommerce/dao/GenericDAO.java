@@ -1,11 +1,13 @@
 package br.iss.ecommerce.dao;
 
 import java.lang.reflect.ParameterizedType;
+import java.math.BigInteger;
 import java.util.List;
 
 import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
@@ -26,7 +28,8 @@ public class GenericDAO<Entity> {
 
 	public void save(Entity entity)	{
 		
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		HibernateUtil.closeLastSession();
+		Session session = HibernateUtil.getSession();
 		
 		Transaction transaction = null;
 		
@@ -44,21 +47,23 @@ public class GenericDAO<Entity> {
 			
 			throw error;
 		} finally	{
-			
+
 			session.close();
 		}
 	}
 	
 	public List<Entity> list()	{
 		
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		HibernateUtil.closeLastSession();
+		Session session = HibernateUtil.getSession();
 		
 		try	{
 			
 			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaQuery<Entity> query = builder.createQuery(currentClass);
-			query.select(query.from(currentClass));
-			List<Entity> result = session.createQuery(query).getResultList();
+			Root<Entity> root = query.from(currentClass);
+			List<Entity> result = 	session.createQuery(query.select(root)
+											.orderBy(builder.asc(root.get("id")))).getResultList();
 			return result;
 		} catch(NoResultException error)	{
 			
@@ -66,19 +71,13 @@ public class GenericDAO<Entity> {
 		} catch(RuntimeException error)	{
 			
 			throw error;
-		} finally	{
-			
-			// Por estarmos utilizando FetchType.LAZY, as consultas são feitas em tempo
-			// real quando chamamos as classes relacionadas. Assim, a sessão deve ser 
-			// fechada apenas após a utilização dos itens da consulta. O mesmo se aplica
-			// à find().
-			//session.close();
-		}
+		} 
 	}
 	
-	public Entity find(Long codigo)	{
+	public Entity find(Long id)	{
 		
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		HibernateUtil.closeLastSession();
+		Session session = HibernateUtil.getSession();
 		
 		try	{
 			
@@ -86,7 +85,7 @@ public class GenericDAO<Entity> {
 			CriteriaQuery<Entity> query = builder.createQuery(currentClass);
 			Root<Entity> root = query.from(currentClass);  
 			query.select(root);
-			query.where(builder.equal(root.get("codigo"), codigo));
+			query.where(builder.equal(root.get("id"), id));
 			Entity result = session.createQuery(query).getSingleResult();
 			return result;
 		} catch(NoResultException error)	{
@@ -95,20 +94,18 @@ public class GenericDAO<Entity> {
 		} catch(RuntimeException error)	{
 			
 			throw error;
-		} finally	{
-			
-//			session.close();
-		}		
+		} 
 	}
 	
 	public void delete(Entity entity)	{
 		
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		HibernateUtil.closeLastSession();
+		Session session = HibernateUtil.getSession();
 		
 		Transaction transaction = null;
 		
 		try	{
-			
+
 			transaction = session.beginTransaction();
 			session.delete(entity);
 			transaction.commit();
@@ -128,7 +125,8 @@ public class GenericDAO<Entity> {
 	
 	public void update(Entity entity)	{
 		
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		HibernateUtil.closeLastSession();
+		Session session = HibernateUtil.getSession();
 		
 		Transaction transaction = null;
 		
@@ -153,7 +151,8 @@ public class GenericDAO<Entity> {
 	
 	public void merge(Entity entity)	{
 		
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		HibernateUtil.closeLastSession();
+		Session session = HibernateUtil.getSession();
 		
 		Transaction transaction = null;
 		
@@ -175,5 +174,23 @@ public class GenericDAO<Entity> {
 			session.close();
 		}
 	}	
+	
+	public Long lastInsertId()	{
+		
+		HibernateUtil.closeLastSession();
+		Session session = HibernateUtil.getSession();
+		
+		try	{
+			
+			Long id = ((BigInteger)session.createNativeQuery("SELECT LAST_INSERT_ID()").getSingleResult()).longValue();
+			return id;
+		} catch(NoResultException error)	{
+			
+			return null;
+		} catch(RuntimeException error)	{
+			
+			throw error;
+		} 
+	}
 	
 }
