@@ -12,7 +12,7 @@ import br.iss.ecommerce.domain.ItemGrade;
 
 
 
-@WebServlet("adm/itemgrade/create")
+@WebServlet("/adm/itemgrade/create")
 public class ItemGrade_Create extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
