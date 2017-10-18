@@ -42,13 +42,17 @@ public class Grade_Post extends HttpServlet {
 		// Passa os outros atributos. 
 		grade.setNome(nome);
 		
-		// Salva o item.
-		if (id == 0)	
+		// Salva o item e seta a mensagem de sucesso.
+		if (id == 0)	{	
 			gradeDAO.save(grade);
-		else
+			request.getSession().setAttribute("flash_message_text", "Grade adicionada com sucesso.");
+		} else {
 			gradeDAO.update(grade);
+			request.getSession().setAttribute("flash_message_text", "Grade editada com sucesso.");
+		}
 			
-		// Redireciona para a tela de edição daquela grade.
+		// Seta o tipo de mensagem como de sucesso e redireciona para a tela de edição daquela grade.
+		request.getSession().setAttribute("flash_message_kind", "success");
 		response.sendRedirect(	request.getAttribute("base_url") + 
 								"/adm/grade/edit?id=" + grade.getId());  		
 	}

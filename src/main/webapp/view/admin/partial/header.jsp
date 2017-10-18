@@ -35,35 +35,7 @@
   <![endif]-->
 </head>
 
-<!--TODO: Adicionar mecânica de mantêr a barra lateral encolhida -->
-<body class="hold-transition skin-black-light sidebar-mini ?>">
-
-<!--TODO: Adicionar mecânica de mensagens de erro e de sucesso. -->
-<!-- Aviso de erro -->
-<!--
-<div class="row">
-  <div class="col-md-12">
-    <div class="alert alert-danger alert-dismissible">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <h4><i class="icon fa fa-ban"></i> Erro!</h4>
-      Mensagem de erro
-    </div>
-  </div>
-</div>
--->
-
-<!-- Aviso de sucesso -->
-<!--
-<div class="row">
-  <div class="col-md-12">
-    <div class="alert alert-success alert-dismissible">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <h4><i class="icon fa fa-check-square"></i> Sucesso!</h4>
-      mensagem de sucesso
-    </div>
-  </div>
-</div>
--->
+<body class="hold-transition skin-black-light sidebar-mini <%= request.getAttribute("sidebar_collapse") %>">
 
 <div class="wrapper">
   <!-- Main Header -->
@@ -142,7 +114,21 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    
+    <!-- Aviso -->
+    <% if (request.getAttribute("flash_message") != null) { %>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert ${flash_message_kind} alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <h4><i class="icon fa ${flash_message_icon}"></i> Aviso</h4>
+          ${flash_message_text}
+        </div>
+      </div>
+    </div>
+    <% } %>         
+    
+    <section class="content-header">   
       <h1>
         ${page_title}
         <small>${page_description}</small>

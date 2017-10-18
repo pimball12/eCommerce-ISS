@@ -25,6 +25,7 @@ public class ItemGrade_Post extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		// Cria os objetos DAO.
 		GradeDAO gradeDAO 			= new GradeDAO(); 
 		ItemGradeDAO itemGradeDAO 	= new ItemGradeDAO();
@@ -51,12 +52,16 @@ public class ItemGrade_Post extends HttpServlet {
 		itemGrade.setValor(valor);
 		
 		// Salva o item.
-		if (id == 0)	
+		if (id == 0)	{
 			itemGradeDAO.save(itemGrade);
-		else
+			request.getSession().setAttribute("flash_message_text", "Item de Grade adicionado com sucesso.");
+		} else {
 			itemGradeDAO.update(itemGrade);
-			
-		// Redireciona para a tela de edição daquela grade.
+			request.getSession().setAttribute("flash_message_text", "Item de Grade editado com sucesso.");
+		}
+		
+		// Seta o tipo de mensagem como sucesso e redireciona para a tela de edição da grade daquele item.
+		request.getSession().setAttribute("flash_message_kind", "success");
 		response.sendRedirect(	request.getAttribute("base_url") + 
 								"/adm/grade/edit?id=" + grade_id); 
 	}

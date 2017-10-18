@@ -40,6 +40,10 @@ public class ItemGrade_Delete extends HttpServlet {
 		// Exclúi a grade do banco.
 		itemGradeDAO.delete(itemGrade);
 		
+		// Seta a mensagem de sucesso.
+		request.getSession().setAttribute("flash_message_text", "Item de Grade excluído com sucesso.");
+		request.getSession().setAttribute("flash_message_kind", "success");
+		
 		// Redireciona para a lista de grades.
 		response.sendRedirect(request.getAttribute("base_url") + "/adm/grade/edit?id=" + grade_id);  		
 	}

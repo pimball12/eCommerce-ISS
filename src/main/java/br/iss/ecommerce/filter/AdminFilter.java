@@ -36,8 +36,43 @@ public class AdminFilter implements Filter {
 											request.getServerName() + ":" + 
 											request.getServerPort() + 
 											httpRequest.getContextPath());
+		
+		// Verifica se existe a variável que controla a barra lateral e define ela.		
+		if (httpRequest.getSession(true).getAttribute("sidebar_collapse") == null)	
+			httpRequest.getSession().setAttribute("sidebar_collapse", true);
+		
+		boolean sidebarCollapse = (boolean)httpRequest.getSession().getAttribute("sidebar_collapse");
+		
+		request.setAttribute("sidebar_collapse", (sidebarCollapse) ? "sidebar-collapse" : "");
+		
+		// Verifica se foi setada uma mensagem temporária, e define ela. Para mensagens de erro e de sucesso.
+		if ((httpRequest.getSession().getAttribute("flash_message_text") != null) &&
+			(httpRequest.getSession().getAttribute("flash_message_kind") != null)){
+			
+			String messageText = (String)httpRequest.getSession().getAttribute("flash_message_text");
+			String messageKind = (String)httpRequest.getSession().getAttribute("flash_message_kind");
+			httpRequest.getSession().removeAttribute("flash_message_text");
+			httpRequest.getSession().removeAttribute("flash_message_kind");
+			
+			request.setAttribute("flash_message_text", 	messageText);
+			request.setAttribute("flash_message",	 	true);
+			
+			if 			(messageKind.equals("error"))	{
+				
+				request.setAttribute("flash_message_icon", "fa-ban");
+				request.setAttribute("flash_message_kind", "alert-danger");				
+			} else if 	(messageKind.equals("info")) {
 
-		// pass the request along the filter chain
+				request.setAttribute("flash_message_icon", "fa-exclamation");
+				request.setAttribute("flash_message_kind", "alert-info");
+			} else if 	(messageKind.equals("success")) {
+				
+				request.setAttribute("flash_message_icon", "fa-check-square");
+				request.setAttribute("flash_message_kind", "alert-success");					
+			}
+		}
+
+		// Continua a cadeia de requisições.
 		chain.doFilter(request, response);
 	}
 
