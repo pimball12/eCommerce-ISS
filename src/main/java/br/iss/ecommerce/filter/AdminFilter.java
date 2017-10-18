@@ -39,7 +39,7 @@ public class AdminFilter implements Filter {
 		
 		// Verifica se existe a variável que controla a barra lateral e define ela.		
 		if (httpRequest.getSession(true).getAttribute("sidebar_collapse") == null)	
-			httpRequest.getSession().setAttribute("sidebar_collapse", true);
+			httpRequest.getSession().setAttribute("sidebar_collapse", false);
 		
 		boolean sidebarCollapse = (boolean)httpRequest.getSession().getAttribute("sidebar_collapse");
 		

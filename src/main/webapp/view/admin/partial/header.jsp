@@ -104,10 +104,12 @@
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
         <!-- TODO: Adicionar mecanismo para definir se a treeview vai estar aberta ou não -->
-        <li class="active"><a href="<%= request.getAttribute("base_url") %>/adm/grade"><i class="fa fa-anchor"></i> <span>Grades</span></a></li>
+        <li><a href="<%= request.getAttribute("base_url") %>/adm/grade"><i class="fa  fa-sliders"></i> <span>Grades</span></a></li>
+        <li><a href="<%= request.getAttribute("base_url") %>/adm/produto"><i class="fa fa-soccer-ball-o"></i> <span>Produtos</span></a></li>
+        
       </ul>
       <!-- /.sidebar-menu -->
-    </section>
+    </section> 
     <!-- /.sidebar -->
   </aside>
 
