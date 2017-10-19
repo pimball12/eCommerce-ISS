@@ -14,12 +14,12 @@
 							<div class="form-group">
 								<label> Valor do Item de Grade </label>
 								<input type="text" name="itemgrade_valor" class="form-control" required 
-								value="${itemGrade.getNome()}" autofocus/>
+								value="${itemGrade.getValor()}" autofocus/>
 							</div>
 						</div>
 					</div>					
 					<div class="box-footer">
-						<a class="btn btn-default" href="${base_url}/adm/grade">Voltar</a>
+						<a class="btn btn-default" href="${base_url}/adm/grade/edit?id=${grade_id}">Voltar</a>
 						<input type="submit" class="btn btn-primary pull-right" value="Salvar"/>
 					</div>
 		        </div>	

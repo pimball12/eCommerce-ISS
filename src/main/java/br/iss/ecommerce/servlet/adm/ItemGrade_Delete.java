@@ -8,18 +8,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.iss.ecommerce.dao.GradeDAO;
 import br.iss.ecommerce.dao.ItemGradeDAO;
 import br.iss.ecommerce.domain.Grade;
 import br.iss.ecommerce.domain.ItemGrade;
-import br.iss.ecommerce.util.HibernateUtil;
 
 
-@WebServlet("/adm/grade/delete")
-public final class Grade_Delete extends HttpServlet {
+@WebServlet("/adm/itemgrade/delete")
+public class ItemGrade_Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public Grade_Delete() {
+
+    public ItemGrade_Delete() {
         
     	super();
     }
@@ -30,20 +29,23 @@ public final class Grade_Delete extends HttpServlet {
 		long id = Long.parseLong(request.getParameter("id").trim());
 		
 		// Cria as classes DAO.
-		GradeDAO gradeDAO = new GradeDAO();
+		ItemGradeDAO itemGradeDAO = new ItemGradeDAO();
 		
-		// Encontra o item correspondente no banco e fecha a transação.
-		Grade grade = gradeDAO.find(id);
+		// Encontra o item correspondente no banco.
+		ItemGrade itemGrade = itemGradeDAO.find(id);
+		
+		// Armazena o id da grade.
+		long grade_id = itemGrade.getGrade().getId();
 		
 		// Exclúi a grade do banco.
-		gradeDAO.delete(grade);
+		itemGradeDAO.delete(itemGrade);
 		
 		// Seta a mensagem de sucesso.
-		request.getSession().setAttribute("flash_message_text", "Grade excluída com sucesso.");
+		request.getSession().setAttribute("flash_message_text", "Item de Grade excluído com sucesso.");
 		request.getSession().setAttribute("flash_message_kind", "success");
 		
 		// Redireciona para a lista de grades.
-		response.sendRedirect(request.getAttribute("base_url") + "/adm/grade");  
+		response.sendRedirect(request.getAttribute("base_url") + "/adm/grade/edit?id=" + grade_id);  		
 	}
 
 }

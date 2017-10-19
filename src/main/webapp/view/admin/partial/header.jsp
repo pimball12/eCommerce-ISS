@@ -35,35 +35,7 @@
   <![endif]-->
 </head>
 
-<!--TODO: Adicionar mecânica de mantêr a barra lateral encolhida -->
-<body class="hold-transition skin-black-light sidebar-mini ?>">
-
-<!--TODO: Adicionar mecânica de mensagens de erro e de sucesso. -->
-<!-- Aviso de erro -->
-<!--
-<div class="row">
-  <div class="col-md-12">
-    <div class="alert alert-danger alert-dismissible">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <h4><i class="icon fa fa-ban"></i> Erro!</h4>
-      Mensagem de erro
-    </div>
-  </div>
-</div>
--->
-
-<!-- Aviso de sucesso -->
-<!--
-<div class="row">
-  <div class="col-md-12">
-    <div class="alert alert-success alert-dismissible">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <h4><i class="icon fa fa-check-square"></i> Sucesso!</h4>
-      mensagem de sucesso
-    </div>
-  </div>
-</div>
--->
+<body class="hold-transition skin-black-light sidebar-mini <%= request.getAttribute("sidebar_collapse") %>">
 
 <div class="wrapper">
   <!-- Main Header -->
@@ -132,17 +104,33 @@
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
         <!-- TODO: Adicionar mecanismo para definir se a treeview vai estar aberta ou não -->
-        <li class="active"><a href="<%= request.getAttribute("base_url") %>/adm/grade"><i class="fa fa-anchor"></i> <span>Grades</span></a></li>
+        <li><a href="<%= request.getAttribute("base_url") %>/adm/grade"><i class="fa  fa-sliders"></i> <span>Grades</span></a></li>
+        <li><a href="<%= request.getAttribute("base_url") %>/adm/produto"><i class="fa fa-soccer-ball-o"></i> <span>Produtos</span></a></li>
+        
       </ul>
       <!-- /.sidebar-menu -->
-    </section>
+    </section> 
     <!-- /.sidebar -->
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    
+    <!-- Aviso -->
+    <% if (request.getAttribute("flash_message") != null) { %>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert ${flash_message_kind} alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <h4><i class="icon fa ${flash_message_icon}"></i> Aviso</h4>
+          ${flash_message_text}
+        </div>
+      </div>
+    </div>
+    <% } %>         
+    
+    <section class="content-header">   
       <h1>
         ${page_title}
         <small>${page_description}</small>

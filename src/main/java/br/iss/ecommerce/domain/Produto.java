@@ -37,7 +37,7 @@ public class Produto extends GenericDomain {
 	@Column(name="DESTAQUE", nullable=false)
 	private Boolean destaque;
 	
-	@Column(name="PESO_PADRAO", nullable=false, precision=7, scale=2)
+	@Column(name="PESO_PADRAO", nullable=false, precision=7, scale=3)
 	private BigDecimal pesoPadrao;
 	
 	@OneToMany(mappedBy="produto")
