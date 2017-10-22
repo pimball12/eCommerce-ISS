@@ -27,11 +27,8 @@ public class Parametro_Create extends HttpServlet {
 		request.setAttribute("page_description", 	"Parametros gerais do sistema.");		
 		
 		Parametro parametro = new Parametro();
-		
-		// Passa os dados para a view.
 		request.setAttribute("parametro", parametro);
 		
-		// Chama a View.
 		request.getRequestDispatcher("/view/admin/parametro_form.jsp").forward(request, response);
 	}
 

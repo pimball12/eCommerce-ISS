@@ -23,7 +23,7 @@
 							<th colspan="2"></th>
 		            	</tr>
 
-						<c:forEach var="grade" items="${grades}">
+						<c:forEach var="parametro" items="${parametro}">
 		            	<tr>
 							<td> ${parametro.getEmail()} </td>
 							<td> ${parametro.getRemetente()} </td>
@@ -31,11 +31,6 @@
 							<td><a href="${base_url}/adm/parametro/edit?id=${parametro.getId()}">
 								<span class="label label-primary">Editar</span>
 							</a></td>
-							
-							<td><a href="#">
-								<span id="${parametro.getId()}" class="label label-danger delete_button" data-toggle="modal" data-target="#delete_modal">
-								Excluir</span>	
-							</a></td>						
 						</tr>
 						</c:forEach>
 		          </tbody>
