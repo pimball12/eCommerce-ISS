@@ -14,7 +14,7 @@
 						</button></a>
 					</div>
 				</div>
-			</div>
+			</div> 
 			<div class="box-body table-responsive ">
 				<table class="table table-hover">
 		            <tbody>

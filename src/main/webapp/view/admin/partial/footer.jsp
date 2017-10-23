@@ -30,7 +30,7 @@
 <!-- Scripts adicionais -->
 <% if (request.getAttribute("scripts") != null) { %>
 <% for(String script: (String[])request.getAttribute("scripts"))  { %>
-  <script src="<%=  request.getAttribute("base_url")   %>/view/admin/assets/public/<%=script %>"></script>
+  <script src="<%=  request.getAttribute("base_url")   %>/view/admin/assets/<%=script %>"></script>
 <%}%>
 <%}%>
 
