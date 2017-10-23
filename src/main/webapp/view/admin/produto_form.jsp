@@ -29,7 +29,7 @@
 			<div class="tab-content">
 			
 				<div id="tab_propriedades" class="tab-pane active">
-				<form action="${base_url}/adm/produto/post">
+				<form action="${base_url}/adm/produto/post" method="POST">
 					
 					<input type="hidden" name="id" value="${produto.getId()}"/>
 					
@@ -108,6 +108,8 @@
 					
 					<div class="row">
 						<div class="col-md-12">
+						
+							<a class="btn btn-default" href="${base_url}/adm/produto">Voltar</a>
 						
 							<input type="submit" class="btn btn-primary pull-right" value="Salvar"/>
 							
