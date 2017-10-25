@@ -29,9 +29,8 @@ public class Parametro_Edit extends HttpServlet {
 			request.setAttribute("page_description", 	"Parametros gerais do sistema.");		
 			
 			ParametroDAO parametroDAO = new ParametroDAO();
-			long id = Long.parseLong(request.getParameter("id").trim());
-			Parametro parametro = parametroDAO.find(id);
-			
+			Parametro parametro = parametroDAO.getFirstOrDefault();
+
 			request.setAttribute("parametro", parametro);
 			request.getRequestDispatcher("/view/admin/parametro_form.jsp").forward(request, response);					
 		} catch (Exception e) {

@@ -12,23 +12,24 @@ import br.iss.ecommerce.domain.Parametro;
 import br.iss.ecommerce.util.HibernateUtil;
 
 public class ParametroDAO extends GenericDAO<Parametro> {
-	public Parametro getFirstOrDefault()	{
-		
+	public Parametro getFirstOrDefault()	
+	{
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		try	{
-			
+		try	
+		{
 			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaQuery<Parametro> query = builder.createQuery(currentClass);
 			Root<Parametro> root = query.from(currentClass);  
 			query.select(root);
 			Parametro result = session.createQuery(query).getSingleResult();
-			return result;
-		} catch(NoResultException error)	{
-			
+						
+			return result == null ? new Parametro() : result;
+		} catch(NoResultException error) 
+		{
 			return null;
-		} catch(RuntimeException error)	{
-			
+		} catch(RuntimeException error)	
+		{
 			throw error;
 		} finally	{
 			session.close();
