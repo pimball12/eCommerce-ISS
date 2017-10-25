@@ -29,7 +29,7 @@ public class Parametro_Edit extends HttpServlet {
 			request.setAttribute("page_description", 	"Parametros gerais do sistema.");		
 			
 			ParametroDAO parametroDAO = new ParametroDAO();
-			Parametro parametro = parametroDAO.getFirstOrDefault();
+			Parametro parametro = parametroDAO.getFirstOrCreate();
 
 			request.setAttribute("parametro", parametro);
 			request.getRequestDispatcher("/view/admin/parametro_form.jsp").forward(request, response);					
@@ -37,5 +37,4 @@ public class Parametro_Edit extends HttpServlet {
 			response.getWriter().append("Error: " + e.getMessage());
 		}
 	}
-
 }

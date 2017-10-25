@@ -8,11 +8,12 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import br.iss.ecommerce.domain.Endereco;
 import br.iss.ecommerce.domain.Parametro;
 import br.iss.ecommerce.util.HibernateUtil;
 
 public class ParametroDAO extends GenericDAO<Parametro> {
-	public Parametro getFirstOrDefault()	
+	public Parametro getFirstOrCreate()	
 	{
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
@@ -23,8 +24,14 @@ public class ParametroDAO extends GenericDAO<Parametro> {
 			Root<Parametro> root = query.from(currentClass);  
 			query.select(root);
 			Parametro result = session.createQuery(query).getSingleResult();
-						
-			return result == null ? new Parametro() : result;
+			
+			if (result == null)
+			{
+				result = new Parametro();
+				result.setRemetente(new Endereco());
+			}
+			
+			return result;
 		} catch(NoResultException error) 
 		{
 			return null;

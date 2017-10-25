@@ -27,12 +27,24 @@ public class Parametro_Post extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ParametroDAO parametroDAO = new ParametroDAO(); 
-		Parametro parametro;
+
 		
 		long id = Long.parseLong(request.getParameter("id").trim());
-		String email = request.getParameter("email");
+		Parametro parametro = parametroDAO.find(id);
 		
-		//if ()
+		String email = request.getParameter("email");
+		parametro.setEmail(email);
+		
+		String pais = request.getParameter("pais");
+		//parametro.getRemetente().setPais(pais);
+		
+		String estado = request.getParameter("estado");
+		//parametro.getRemetente().setEstado(estado);
+		
+		String cidade = request.getParameter("cidade");
+		//parametro.getRemetente().setCidade(cidade);
+		
+		parametroDAO.update(parametro);
 		
 		request.getSession().setAttribute("flash_message_text", "Parametro salvo com sucesso.");
 		response.sendRedirect(	request.getAttribute("base_url") + "/adm/parametro/edit"); 

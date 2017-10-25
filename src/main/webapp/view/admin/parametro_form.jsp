@@ -13,13 +13,19 @@
 						<div class="col-md-12">
 							<div class="form-group">
 								<label> E-Mail </label>
-								<input type="text" name="parametro_nome" class="form-control" required 
+								<input type="text" name="email" class="form-control" required 
 								value="${parametro.getEmail()}" autofocus/>
 							</div>
+							<label> Remetente </label>
 							<div class="form-group">
-								<label> Remetente </label>
-								<input type="text" name="parametro_nome" class="form-control" required 
-								value="${parametro.getEmail()}" autofocus/>
+								<label> Pais </label>
+								<input type="text" name="pais" class="form-control" required 
+								value="${parametro.getRemetente().getPais()}" autofocus/>
+							</div>
+							<div class="form-group">
+								<label> Estado </label>
+								<input type="text" name="pais" class="form-control" required 
+								value="${parametro.getRemetente().getEstado()}" autofocus/>
 							</div>
 						</div>
 					</div>					
@@ -31,7 +37,4 @@
 		</div>
 	</div>
 </form>
-
-<a class="btn btn-default" href="${base_url}/adm/grade">Voltar</a>
-
 <jsp:include page="/view/admin/partial/footer.jsp"/>
