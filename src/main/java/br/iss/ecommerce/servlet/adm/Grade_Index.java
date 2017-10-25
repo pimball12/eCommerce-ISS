@@ -37,7 +37,7 @@ public final class Grade_Index extends HttpServlet {
 		request.setAttribute("delete_modal_url",		"/adm/grade/delete");
 		
 		// Passa os scripts necessários.
-		String[] scripts = {"delete_button.js"};
+		String[] scripts = {"public/delete_button.js"};
 		request.setAttribute("scripts", scripts);
 		
 		// Recupera as grades.
