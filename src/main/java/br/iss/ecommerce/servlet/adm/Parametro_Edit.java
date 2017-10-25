@@ -13,7 +13,7 @@ import br.iss.ecommerce.domain.Grade;
 import br.iss.ecommerce.domain.Parametro;
 
 
-@WebServlet("/adm/grade/edit")
+@WebServlet("/adm/parametro/edit")
 public class Parametro_Edit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
