@@ -35,7 +35,7 @@
 							<td> ${produto.getGrupo().getNome()} </td>
 							<td> <fmt:formatNumber value="${produto.getPreco()}" type = "currency" /></td>
 							<td> ${produto.getDestaque() ? 'Sim' : 'Não'} </td>
-							<td> <fmt:formatNumber value="${produto.getPesoPadrao()}" type = "number" maxFractionDigits = "3" /></td>
+							<td> <fmt:formatNumber value="${produto.getPesoPadrao()}" type = "number" maxFractionDigits = "3" minFractionDigits="3" /></td>
 							
 							<td><a href="${base_url}/adm/produto/edit?id=${produto.getId()}">
 								<span class="label label-primary">Editar</span>

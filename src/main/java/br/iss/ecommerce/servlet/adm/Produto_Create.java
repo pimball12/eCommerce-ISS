@@ -56,6 +56,7 @@ public class Produto_Create extends HttpServlet {
 		// Passa os dados para a view.
 		request.setAttribute("produto", produto);
 		request.setAttribute("grupos", grupos);
+		request.setAttribute("tab", 0);
 		
 		// Chama a view.
 		request.getRequestDispatcher("/view/admin/produto_form.jsp").forward(request, response);

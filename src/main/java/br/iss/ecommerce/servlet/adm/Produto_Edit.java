@@ -33,9 +33,26 @@ public class Produto_Edit extends HttpServlet {
 			request.setAttribute("page_title", 				"Produtos");
 			request.setAttribute("page_description", 		"Editar Produto.");	
 			
+			// Pega a tab ativa da página.
+			int tab =  ((Object)request.getParameter("tab") != null) ? 
+						Integer.parseInt(request.getParameter("tab").trim()) :
+						0;
+			
 			// Instancia objetos DAO.
 			ProdutoDAO produtoDAO 	= new ProdutoDAO();
 			GrupoDAO   grupoDAO		= new GrupoDAO();
+			
+			// Passa os arquivos .js e .css necessários.
+			String[] scripts = {
+				"plugins/select2/select2.full.min.js", 
+				"public/select2.js",
+				"plugins/numeric/numeric.min.js",
+				"public/numeric.js"
+			};
+			request.setAttribute("scripts", scripts);
+			
+			String[] styles = {"plugins/select2/select2.min.css"};
+			request.setAttribute("styles", styles); 			
 			
 			// Pega o código da produto.
 			long id = Long.parseLong(request.getParameter("id").trim());
@@ -47,6 +64,7 @@ public class Produto_Edit extends HttpServlet {
 			// Passa os dados para a view.
 			request.setAttribute("produto", produto);
 			request.setAttribute("grupos", grupos);
+			request.setAttribute("tab", tab);
 			
 			// Chama a View.
 			request.getRequestDispatcher("/view/admin/produto_form.jsp").forward(request, response);					
