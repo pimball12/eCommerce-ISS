@@ -17,6 +17,9 @@ public class Imagem extends GenericDomain {
 	@ManyToOne
 	@JoinColumn(name="PRODUTO_ID", nullable=false)
 	private Produto produto;
+	
+	@Column(name="POSICAO", nullable=false)
+	private short posicao;
 
 	public String getCaminho() {
 		return caminho;
@@ -34,4 +37,11 @@ public class Imagem extends GenericDomain {
 		this.produto = produto;
 	}
 	
+	public short getPosicao() {
+		return posicao;
+	}
+
+	public void setPosicao(short posicao) {
+		this.posicao = posicao;
+	}
 }

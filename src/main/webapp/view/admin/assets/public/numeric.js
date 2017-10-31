@@ -1,4 +1,6 @@
 $(document).ready(function()	{
+	
+	$(".numeric").numeric({negative : false});
 
 	$(".weight-numeric").numeric({ decimalPlaces : 3, negative : false, decimal : "," })
 						.focus(function(){$(this).select()});
