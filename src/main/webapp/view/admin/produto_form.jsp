@@ -78,8 +78,8 @@
 									<select name="grupo_id" class="form-control select2">
 										<c:forEach var="grupo" items="${grupos}">
 										<option value="${grupo.getId()}" ${grupo.getId() == produto.getGrupo().getId() ? 'selected' : '' }>
-									${grupo.getNome()}
-									</option>
+										${grupo.getNome()}
+										</option>
 										</c:forEach>
 									</select>
 								</div>
@@ -124,6 +124,7 @@
 					<div id="tab_imagens" class="tab-pane ${tab == 1 ? 'active' : ''}">
 						
 						<form action="${base_url}/adm/imagem/post" method="POST" enctype="multipart/form-data">
+							<input type="hidden" name="produto_id" value="${produto.getId()}" />
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
@@ -141,11 +142,103 @@
 						</form>		 
 						
 						<hr/>
-						
+												
+						<div class="row bottom_15">						
+							<c:set var="counter" value="0"/>
+							<c:forEach var="imagem" items="${imagens}">
 							
+								<div class="col-md-4 bottom_15"> 
+									<img style="width:80%" src="${base_url}/adm/imagem/get?path=${imagem.getCaminho()}">
+										
+									<button type="submit" id="${imagem.getId()}" data-toggle="modal" data-target="#delete_modal" class="btn btn-md btn-danger pull-right delete_button"><i class="fa fa-close"></i> </button>
+																			 
+									<label>Sequência</label>  
+									<form method="POST" action="${base_url}/adm/imagem/alter">
+									<div class="input-group input-group-sm">
+										<input type="hidden" name="id" value="${imagem.getId()}" />
+										<input name="posicao" type="text" class="form-control numeric" value="${imagem.getPosicao()}"/>
+										<span class="input-group-btn">
+					                      <button type="submit" class="btn btn-info btn-flat"><span class="fa fa-check"></span></button>
+					                    </span> 
+									</div>
+									</form>
+								</div>
+								
+								<c:set var="counter" value="${counter + 1}"/>
+								<c:if test="${counter == 3}">
+									<c:set var="counter" value="0"/>
+									<div class="clearfix"></div>
+								</c:if>
+								
+							</c:forEach>
+							
+							
+						</div>			 
 					</div> 
 						
-					<div id="tab_estoque" class="tab-pane ${tab == 2 ? 'active' : ''}"> 
+					<div id="tab_estoque" class="tab-pane ${tab == 2 ? 'active' : ''}"> 						
+						
+						<form action="${base_url}/adm/estoque/insert" method="POST">
+						
+						<input type="hidden" name="produto_id" value="${produto.getId()}" />
+						
+						<div class="row">
+							<c:set var="counter" value="0"/>
+							<c:forEach items="${grades}" var="grade">
+							
+				                <div class="col-sm-6 top_15">
+					                <div class="form-group">
+					                  <label class="col-sm-2 control-label">${grade.getNome()}</label>
+					
+					                  <div class="col-sm-10">
+					                    <select class="form-control select2" name="itensGrade">
+					                    	<c:forEach items="${grade.getItensGrade()}" var="itemGrade">
+					                    	<option value="${itemGrade.getId()}">${itemGrade.getValor()}</option>
+					                    	</c:forEach>
+					                    </select>
+					                  </div>
+					                </div>
+				                </div>	  
+				                	     
+			                	<c:set var="counter" value="${counter + 1}"/>
+								<c:if test="${counter == 2}">
+									<c:set var="counter" value="0"/>
+									<div class="clearfix"></div>
+								</c:if>
+								
+				            </c:forEach>
+				            
+				            <div class="col-md-12 top_15">
+				            	
+									<div class="col-md-6"> 
+										<div class="form-group">
+											<label> Quantidade </label>
+											<input type="text" name="quantidade" class="form-control numeric" required 
+											placeholder="Ex: 23" value="<fmt:formatNumber value="1" type = "number" maxFractionDigits = "0"/>" autofocus/>
+										</div>					
+									</div>
+														
+									<div class="col-md-6"> 
+										<div class="form-group">
+											<label> Peso (Kg) </label>
+											<input type="text" name="peso" class="form-control weight-numeric" required 
+											placeholder="Ex: 1,329" value="<fmt:formatNumber value="${produto.getPesoPadrao()}" type = "number" maxFractionDigits = "3" minFractionDigits = "3" />" autofocus/>
+										</div>									
+									</div>
+								
+				            </div>
+				            
+				            <div class="col-md-12">
+					            <div class="row">
+					            <div class="col-md-12">
+					            	<button type="submit" class="btn btn-success btn-lg pull-right">Inserir</button>
+					            </div>
+					            </div>
+				            </div>
+		                </div>		
+						</form>
+						
+						<hr/> 
 						
 					</div>
 				
