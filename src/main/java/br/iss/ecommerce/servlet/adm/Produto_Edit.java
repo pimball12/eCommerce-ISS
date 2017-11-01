@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.iss.ecommerce.dao.GrupoDAO;
 import br.iss.ecommerce.dao.ProdutoDAO;
+import br.iss.ecommerce.domain.Grade;
 import br.iss.ecommerce.domain.Grupo;
 import br.iss.ecommerce.domain.Imagem;
 import br.iss.ecommerce.domain.Produto;
@@ -64,14 +65,18 @@ public class Produto_Edit extends HttpServlet {
 			// Pega o código da produto.
 			long id = Long.parseLong(request.getParameter("id").trim());
 			
-			// Recupera o produto, as imagens relacionadas a ele e os grupos.
+			// Lista os grupos.
+			List<Grupo> grupos 		= grupoDAO.list();
+			
+			// Recupera o produto, as imagens e grades relacionadas a ele.
 			Produto produto = produtoDAO.find(id);
-			List<Imagem> imagens = new ArrayList<Imagem>(produto.getImagens()); 
-			List<Grupo> grupos = grupoDAO.list();
+			List<Imagem> imagens 	= new ArrayList<Imagem>(produto.getImagens());
+			List<Grade> grades 		= new ArrayList<Grade>(produto.getGrupo().getGrades());
 			
 			// Passa os dados para a view.
 			request.setAttribute("produto", produto);
 			request.setAttribute("imagens", imagens);
+			request.setAttribute("grades", grades);
 			request.setAttribute("grupos", grupos);
 			request.setAttribute("tab", tab);
 			
