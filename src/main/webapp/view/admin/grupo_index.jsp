@@ -5,10 +5,10 @@
 	<div class="col-md-12">
 		<div class="box">
 			<div class="box-header">
-				<h3 class="box-title"> Grades Cadastradas </h3>
+				<h3 class="box-title"> Grupo Cadastradas </h3>
 				<div class="box-tools">
 					<div class="form-group">
-						<a href="<%= request.getAttribute("base_url") + "/adm/grade/create" %> "><button class="btn btn-success">
+						<a href="<%= request.getAttribute("base_url") + "/adm/grupo/create" %> "><button class="btn btn-success">
 							Cadastrar
 						</button></a>
 					</div>
@@ -23,17 +23,17 @@
 							<th colspan="2"></th>
 		            	</tr>
 
-						<c:forEach var="grade" items="${grades}">
+						<c:forEach var="grupo" items="${grupos}">
 		            	<tr>
-							<td> ${grade.getId()} </td>
-							<td> ${grade.getNome()} </td>
+							<td> ${grupo.getId()} </td>
+							<td> ${grupo.getNome()} </td>
 							
-							<td><a href="${base_url}/adm/grade/edit?id=${grade.getId()}">
+							<td><a href="${base_url}/adm/grupo/edit?id=${grupo.getId()}">
 								<span class="label label-primary">Editar</span>
 							</a></td>
 							
 							<td><a href="#">
-								<span id="${grade.getId()}" class="label label-danger delete_button" data-toggle="modal" data-target="#delete_modal">
+								<span id="${grupo.getId()}" class="label label-danger delete_button" data-toggle="modal" data-target="#delete_modal">
 								Excluir</span>	
 							</a></td>						
 						</tr>

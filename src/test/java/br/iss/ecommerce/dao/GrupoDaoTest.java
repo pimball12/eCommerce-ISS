@@ -12,7 +12,7 @@ import br.iss.ecommerce.domain.Grupo;
 public class GrupoDaoTest {
 
 	@Test
-	@Ignore
+	//@Ignore
 	public void save()	{
 		
 		GradeDAO gradeDAO = new GradeDAO();

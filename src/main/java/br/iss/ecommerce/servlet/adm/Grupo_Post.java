@@ -8,53 +8,48 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.iss.ecommerce.dao.GradeDAO;
+import br.iss.ecommerce.dao.GrupoDAO;
 import br.iss.ecommerce.domain.Grade;
+import br.iss.ecommerce.domain.Grupo;
 import br.iss.ecommerce.util.HibernateUtil;
 
 
-@WebServlet("/adm/grade/post")
-public class Grade_Post extends HttpServlet {
+@WebServlet("/adm/grupo/post")
+public class Grupo_Post extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public Grade_Post() {
+    public Grupo_Post() {
         
     	super();
     }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+		GrupoDAO GrupoDAO = new GrupoDAO();
 		
-		// Cria os objetos DAO.
-		GradeDAO gradeDAO = new GradeDAO();
+
+		Grupo grupo;
+		long 	id = Long.parseLong(request.getParameter("id").trim());
+		String 	nome = request.getParameter("grupo_nome");
 		
-		// Define os objetos de Persistência.
-		Grade grade;
-		
-		// Recupera as propriedades da grade.
-		long 	id 		= Long.parseLong(request.getParameter("id").trim());
-		String 	nome	= request.getParameter("grade_nome");
-		
-		// Verifica se é inserção ou atualização.
 		if (id == 0)			
-			grade = new Grade();
+			grupo = new Grupo();
 		else 			
-			grade = gradeDAO.find(id);		
+			grupo = GrupoDAO.find(id);		
 		
-		// Passa os outros atributos. 
-		grade.setNome(nome);
+		grupo.setNome(nome);
 		
-		// Salva o item e seta a mensagem de sucesso.
 		if (id == 0)	{	
-			gradeDAO.save(grade);
-			request.getSession().setAttribute("flash_message_text", "Grade adicionada com sucesso.");
+			GrupoDAO.save(grupo);
+			request.getSession().setAttribute("flash_message_text", "Grupo adicionada com sucesso.");
 		} else {
-			gradeDAO.update(grade);
-			request.getSession().setAttribute("flash_message_text", "Grade editada com sucesso.");
+			GrupoDAO.update(grupo);
+			request.getSession().setAttribute("flash_message_text", "Grupo editada com sucesso.");
 		}
 			
-		// Seta o tipo de mensagem como de sucesso e redireciona para a tela de edição daquela grade.
 		request.getSession().setAttribute("flash_message_kind", "success");
 		response.sendRedirect(	request.getAttribute("base_url") + 
-								"/adm/grade/edit?id=" + grade.getId());  		
+								"/adm/grupo/edit?id=" + grupo.getId());  		
 	}
 
 }

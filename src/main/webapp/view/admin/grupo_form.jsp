@@ -1,9 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/view/admin/partial/header.jsp"/>
 
-<form action="${base_url}/adm/grade/post" method="POST">
+<form action="${base_url}/adm/grupo/post" method="POST">
 	
-	<input type="hidden" name="id" value="${grade.getId()}"/>
+	<input type="hidden" name="id" value="${grupo.getId()}"/>
 
 	<div class="row">
 		<div class="col-md-12">
@@ -13,7 +13,7 @@
 						<div class="col-md-12">
 							<div class="form-group">
 								<label> Nome do Grupo </label>
-								<input type="text" name="grade_nome" class="form-control" required 
+								<input type="text" name="grupo_nome" class="form-control" required 
 								value="${grupo.getNome()}" autofocus/>
 							</div>
 						</div>
@@ -32,7 +32,7 @@
 	<div class="col-md-12">
 		<div class="box">
 			<div class="box-header">
-				<h3 class="box-title"> Itens Cadastrados </h3>
+				<h3 class="box-title"> Grades Cadastrados </h3>
 				<div class="box-tools">
 					<div class="form-group">
 						<a href="${base_url}/adm/grade/create?grade_id=${grupo.getId()}"><button class="btn btn-success">
@@ -75,6 +75,6 @@
 
 </c:if>
 
-<a class="btn btn-default" href="${base_url}/adm/grade">Voltar</a>
+<a class="btn btn-default" href="${base_url}/adm/grupo">Voltar</a>
 
 <jsp:include page="/view/admin/partial/footer.jsp"/>

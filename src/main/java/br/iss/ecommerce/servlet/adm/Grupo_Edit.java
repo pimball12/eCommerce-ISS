@@ -35,9 +35,9 @@ public class Grupo_Edit extends HttpServlet {
 
 			long id = Long.parseLong(request.getParameter("id").trim());
 
-			Grupo grade = grupoDAO.find(id);
+			Grupo grupo = grupoDAO.find(id);
 
-			request.setAttribute("grade", grade);
+			request.setAttribute("grupo", grupo);
 
 			request.getRequestDispatcher("/view/admin/grupo_form.jsp").forward(request, response);					
 		} catch (Exception e) {
