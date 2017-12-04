@@ -106,7 +106,8 @@
         <!-- TODO: Adicionar mecanismo para definir se a treeview vai estar aberta ou não -->
         <li><a href="<%= request.getAttribute("base_url") %>/adm/grade"><i class="fa  fa-sliders"></i> <span>Grades</span></a></li>
         <li><a href="<%= request.getAttribute("base_url") %>/adm/produto"><i class="fa fa-soccer-ball-o"></i> <span>Produtos</span></a></li>
-        
+        <li><a href="<%= request.getAttribute("base_url") %>/adm/parametro/edit"><i class="fa fa-gear"></i> <span>Parametro</span></a></li>
+        <li><a href="<%= request.getAttribute("base_url") %>/adm/grupo"><i class="fa fa-object-group"></i> <span>Grupos</span></a></li>        
       </ul>
       <!-- /.sidebar-menu -->
     </section> 
