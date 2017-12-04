@@ -32,10 +32,10 @@
 	<div class="col-md-12">
 		<div class="box">
 			<div class="box-header">
-				<h3 class="box-title"> Grades Cadastrados </h3>
+				<h3 class="box-title"> Grades Associadas </h3>
 				<div class="box-tools">
 					<div class="form-group">
-						<a href="${base_url}/adm/grade/create?grade_id=${grupo.getId()}"><button class="btn btn-success">
+						<a href="${base_url}/adm/grupo/grade/link?grupo_id=${grupo.getId()}"><button class="btn btn-success">
 							Adicionar
 						</button></a>
 					</div>
@@ -45,6 +45,7 @@
 				<table class="table table-hover">
 		            <tbody>
 		            	<tr>
+		            		<th>Codigo</th>
 							<th>Nome</th>
 							<th colspan="1"></th>
 		            	</tr> 
@@ -53,14 +54,13 @@
 		            	<tr>
 							<td> ${grade.getId()} </td>
 							<td> ${grade.getNome()} </td>
-							
-							<td><a href="${base_url}/adm/grade/edit?id=${grade.getId()}&grade_id=${grade.getId()}">
-								<span class="label label-primary">Editar</span>
-							</a></td>
-							
 							<td><a href="#">
-								<span id="${grade.getId()}" class="label label-danger delete_button" data-toggle="modal" data-target="#delete_modal">
-								Excluir</span>
+								<form action="${base_url}/adm/grupo/grade/unlink" method="POST">
+									<input type="hidden" name="grupo_id" value="${grupo.getId()}"/>
+									<input type="hidden" name="grade_id" value="${grade.getId()}"/>
+									<button type="submit" class="label label-danger">
+								</form>
+								Desvincular</span>
 							</a></td>			 		
 						</tr> 
 						</c:forEach>
@@ -70,8 +70,6 @@
 	   </div>
 	</div>
 </div>
-
-<jsp:include page="/view/admin/partial/delete_modal.jsp"/>
 
 </c:if>
 

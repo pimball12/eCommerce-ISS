@@ -25,12 +25,6 @@ public class Grupo_Edit extends HttpServlet {
 			request.setAttribute("page_title", 				"Grupos");
 			request.setAttribute("page_description", 		"Editar Grupo.");	
 
-			request.setAttribute("delete_modal_message",	"Deseja realmente excluír este grupo?");
-			request.setAttribute("delete_modal_url",		"/adm/gupo/delete");			
-
-			String[] scripts = {"delete_button.js"};
-			request.setAttribute("scripts", scripts); 
-
 			GrupoDAO grupoDAO = new GrupoDAO();
 
 			long id = Long.parseLong(request.getParameter("id").trim());
