@@ -6,7 +6,7 @@
 <div class="row" >
 	<div class="col-md-12">
 		<div class="nav-tabs-custom">
-			<ul class="nav nav-tabs">
+			<ul class="nav nav-tabs nav-justified">
 			
 				<li class="${tab == 0 ? 'active' : ''}">
 					<a href="#tab_propriedades" data-toggle="tab" aria-expanded="${tab == 0 ? 'true' : 'false'}">Propriedades</a>				
@@ -210,28 +210,28 @@
 				            
 				            <div class="col-md-12 top_15">
 				            	
-									<div class="col-md-6"> 
-										<div class="form-group">
-											<label> Quantidade </label>
-											<input type="text" name="quantidade" class="form-control numeric" required 
-											placeholder="Ex: 23" value="<fmt:formatNumber value="1" type = "number" maxFractionDigits = "0"/>" autofocus/>
-										</div>					
-									</div>
-														
-									<div class="col-md-6"> 
-										<div class="form-group">
-											<label> Peso (Kg) </label>
-											<input type="text" name="peso" class="form-control weight-numeric" required 
-											placeholder="Ex: 1,329" value="<fmt:formatNumber value="${produto.getPesoPadrao()}" type = "number" maxFractionDigits = "3" minFractionDigits = "3" />" autofocus/>
-										</div>									
-									</div>
+								<div class="col-md-6"> 
+									<div class="form-group">
+										<label> Quantidade </label>
+										<input type="text" name="quantidade" class="form-control int-numeric" required 
+										placeholder="Ex: 23, -12" value="<fmt:formatNumber value="1" type = "number" maxFractionDigits = "0"/>" autofocus/>
+									</div>					
+								</div>
+													
+								<div class="col-md-6"> 
+									<div class="form-group">
+										<label> Peso (Kg) </label>
+										<input type="text" name="peso" class="form-control weight-numeric" required 
+										placeholder="Ex: 1,329" value="<fmt:formatNumber value="${produto.getPesoPadrao()}" type = "number" maxFractionDigits = "3" minFractionDigits = "3" />" autofocus/>
+									</div>									
+								</div>
 								
 				            </div>
 				            
 				            <div class="col-md-12">
 					            <div class="row">
 					            <div class="col-md-12">
-					            	<button type="submit" class="btn btn-success btn-lg pull-right">Inserir</button>
+					            	<button type="submit" class="btn btn-success btn-lg pull-right">Inserir/Alterar</button>
 					            </div>
 					            </div>
 				            </div>
@@ -239,6 +239,34 @@
 						</form>
 						
 						<hr/> 
+						
+						<div class="box-body table-responsive ">
+							<table class="table table-hover">
+					            <tbody>
+					            	<tr>
+										<th>Código</th>
+										<th>Quantidade</th>
+										<th>Reservado</th>
+										<th>Peso</th>
+										<c:forEach var="grade" items="${grades}">
+										<th>${grade.getNome()}</th>
+										</c:forEach>
+					            	</tr>
+			
+									<c:forEach var="estoque" items="${estoques}">
+					            	<tr>
+										<td> ${estoque.getId()} </td>
+										<td> ${estoque.getQuantidade()} </td>
+										<td> ${estoque.getReservado()} </td>
+										<td> ${estoque.getPeso()} </td>			
+										<c:forEach var="itemGrade" items="${estoque.getItensGrade()}">
+										<td>${itemGrade.getValor()}</td>
+										</c:forEach>	
+									</tr>
+									</c:forEach>
+					          </tbody>
+					        </table>	
+				        </div>							
 						
 					</div>
 				

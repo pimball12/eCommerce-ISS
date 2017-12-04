@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.iss.ecommerce.dao.GrupoDAO;
 import br.iss.ecommerce.dao.ProdutoDAO;
+import br.iss.ecommerce.domain.Estoque;
 import br.iss.ecommerce.domain.Grade;
 import br.iss.ecommerce.domain.Grupo;
 import br.iss.ecommerce.domain.Imagem;
@@ -72,13 +73,15 @@ public class Produto_Edit extends HttpServlet {
 			Produto produto = produtoDAO.find(id);
 			List<Imagem> imagens 	= new ArrayList<Imagem>(produto.getImagens());
 			List<Grade> grades 		= new ArrayList<Grade>(produto.getGrupo().getGrades());
+			List<Estoque> estoques 	= new ArrayList<Estoque>(produto.getEstoques());
 			
 			// Passa os dados para a view.
-			request.setAttribute("produto", produto);
-			request.setAttribute("imagens", imagens);
-			request.setAttribute("grades", grades);
-			request.setAttribute("grupos", grupos);
-			request.setAttribute("tab", tab);
+			request.setAttribute("produto", 	produto);
+			request.setAttribute("imagens", 	imagens);
+			request.setAttribute("grades", 		grades);
+			request.setAttribute("grupos", 		grupos);
+			request.setAttribute("tab", 		tab);
+			request.setAttribute("estoques", 	estoques);
 			
 			// Chama a View.
 			request.getRequestDispatcher("/view/admin/produto_form.jsp").forward(request, response);					

@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
@@ -20,6 +21,7 @@ public class Grupo extends GenericDomain {
 	private String nome;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OrderBy("id")
 	@JoinTable(
 		name = "GRUPO_GRADE",  
 		joinColumns = {
