@@ -1,6 +1,7 @@
 package br.iss.ecommerce.domain;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @SuppressWarnings("serial")
 @Entity
@@ -31,7 +37,13 @@ public class Estoque extends GenericDomain {
 	@Column(name="PESO", nullable=false, precision=7, scale=2)
 	private BigDecimal peso;
 	
+	@Column(name="DATA", columnDefinition="TIMESTAMP")
+	@Temporal(TemporalType.TIMESTAMP)
+	@CreationTimestamp
+	private Date data;	
+	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OrderBy("grade")
 	@JoinTable(
 		name = "ESTOQUE_ITEM_GRADE",  
 		joinColumns = {

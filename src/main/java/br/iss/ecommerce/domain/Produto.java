@@ -42,6 +42,7 @@ public class Produto extends GenericDomain {
 	private BigDecimal pesoPadrao;
 	
 	@OneToMany(mappedBy="produto")
+	@OrderBy("id")
 	private Set<Estoque> estoques;
 	
 	@OneToMany(mappedBy="produto")

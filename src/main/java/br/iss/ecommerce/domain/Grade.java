@@ -23,7 +23,7 @@ public class Grade extends GenericDomain {
 	private String nome;
 	
 	@OneToMany(mappedBy="grade", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	@OrderBy("id")
+	@OrderBy("grade")
 	private Set<ItemGrade> itensGrade;
 
 	public String getNome() {
