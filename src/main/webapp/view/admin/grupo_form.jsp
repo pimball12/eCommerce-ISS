@@ -47,21 +47,12 @@
 		            	<tr>
 		            		<th>Codigo</th>
 							<th>Nome</th>
-							<th colspan="1"></th>
 		            	</tr> 
 		
 						<c:forEach var="grade" items="${grupo.getGrades()}">
 		            	<tr>
 							<td> ${grade.getId()} </td>
-							<td> ${grade.getNome()} </td>
-							<td><a href="#">
-								<form action="${base_url}/adm/grupo/grade/unlink" method="POST">
-									<input type="hidden" name="grupo_id" value="${grupo.getId()}"/>
-									<input type="hidden" name="grade_id" value="${grade.getId()}"/>
-									<button type="submit" class="label label-danger">
-								</form>
-								Desvincular</span>
-							</a></td>			 		
+							<td> ${grade.getNome()} </td>			 		
 						</tr> 
 						</c:forEach>
 		          </tbody>

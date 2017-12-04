@@ -24,7 +24,7 @@
 							</div>
 							<div class="form-group">
 								<label> Estado </label>
-								<input type="text" name="pais" class="form-control" required 
+								<input type="text" name="estado" class="form-control" required 
 								value="${parametro.getRemetente().getEstado()}" autofocus/>
 							</div>
 						</div>
