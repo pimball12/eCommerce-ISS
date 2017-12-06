@@ -22,7 +22,6 @@ public class Usuario_Create extends HttpServlet {
      */
     public Usuario_Create() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -41,7 +40,7 @@ public class Usuario_Create extends HttpServlet {
 		request.setAttribute("usuario", usuario);
 		
 		// Chama a View.
-		request.getRequestDispatcher("/view/usuario/usuario_create.jsp").forward(request, response);
+		request.getRequestDispatcher("/view/usuario/usuario_form.jsp").forward(request, response);
 	}
 
 }
