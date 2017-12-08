@@ -56,7 +56,7 @@ public class Estoque_Insert extends HttpServlet {
 			for (String itemGrade_id : itensGradeId) 
 				itensGrade.add(itemGradeDAO.find(Long.parseLong(itemGrade_id.trim())));
 			
-			estoque = estoqueDAO.findByItensGrade(itensGrade);
+			estoque = estoqueDAO.findByItensGrade(itensGrade, produto_id);
 			
 			if (estoque != null)	{
 				

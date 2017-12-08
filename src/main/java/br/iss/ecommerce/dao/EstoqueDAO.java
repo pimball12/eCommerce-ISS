@@ -16,7 +16,7 @@ import javassist.bytecode.SignatureAttribute.ArrayType;
 public class EstoqueDAO extends GenericDAO<Estoque> {
 
 	@SuppressWarnings({ "unchecked", "deprecation" })
-	public Estoque findByItensGrade(Set<ItemGrade> itensGrade)	{
+	public Estoque findByItensGrade(Set<ItemGrade> itensGrade, long produto_id)	{
 		
 		HibernateUtil.closeLastSession();
 		Session session = HibernateUtil.getSession();
@@ -39,19 +39,21 @@ public class EstoqueDAO extends GenericDAO<Estoque> {
 			
 			// Busca o estoque se ele existe.
 			estoques = session.createNativeQuery(
-					"select distinct e.* from estoque e " +
-					"inner join estoque_item_grade eig on e.ID = eig.ESTOQUE_ID " +
-					"where " +
-					"	eig.ITEM_GRADE_ID not in (SELECT ig.ID from item_grade ig where ig.ID not in :ids) " +
+					"select distinct e.* from estoque e  " +
+					"inner join estoque_item_grade eig on e.ID = eig.ESTOQUE_ID  " +
+					"where  " +
+					"	eig.ITEM_GRADE_ID not in (SELECT ig.ID from item_grade ig  " +
+					"    where ig.ID not in :ids)  " +
+					"and  " +
+					"	(SELECT COUNT(*) from estoque_item_grade eig2   " +
+					" 	where eig2.ESTOQUE_ID = e.ID and eig2.ITEM_GRADE_ID in :ids) = :quant " +
 					"and " +
-					"	eig.ITEM_GRADE_ID in :ids " +
-					"and " +
-					"	(SELECT COUNT(*) from estoque_item_grade eig2  " +
-					" 	where eig2.ESTOQUE_ID = e.ID and eig2.ITEM_GRADE_ID in :ids) = :quant "
+					"	e.PRODUTO_ID = :produto_id " 
 			)
 			.addEntity(currentClass)
 			.setParameter("ids", ids)
 			.setParameter("quant", quant)
+			.setParameter("produto_id", produto_id)
 			.list();
 		
 			// Retorna o estoque, se tiver.
