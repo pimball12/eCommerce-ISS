@@ -1,6 +1,7 @@
 package br.iss.ecommerce.dao;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -29,5 +30,19 @@ public class ProdutoDaoTest {
 		produto.setGrupo(  		grupo);
 		
 		produtoDAO.save(produto);
+	}
+	
+	@Test
+	@Ignore
+	public void listAvaiable()	{
+		
+		ProdutoDAO produtoDAO = new ProdutoDAO();
+		
+		List<Produto> produtos = produtoDAO.listAvaiable();
+		
+		for(Produto produto : produtos)	{
+			
+			System.out.println(produto.getNome() + " > " + produto.getPreco());
+		}
 	}
 }

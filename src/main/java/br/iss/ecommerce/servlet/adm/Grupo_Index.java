@@ -36,7 +36,7 @@ public class Grupo_Index extends HttpServlet {
 		GrupoDAO grupoDAO = new GrupoDAO();
 		List<Grupo> grupos = grupoDAO.list();
 
-		request.setAttribute("grupos", grupos);
+		request.setAttribute("grupos", grupos); 
 		request.getRequestDispatcher("/view/admin/grupo_index.jsp").forward(request, response);
 	}
 
