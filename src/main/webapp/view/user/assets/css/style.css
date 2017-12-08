@@ -803,7 +803,7 @@ p.footer-class a:hover{
   padding: 0;
 }
 .back{
-	background: url(../images/product.jpg) no-repeat 0px -54px;
+	background: rgba(0, 0, 0, 0.5); 
   width: 100%;
   background-size: cover;
   min-height: 100px;
