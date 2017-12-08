@@ -31,12 +31,6 @@ public class AdminFilter implements Filter {
 		// Converte a requisição.
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		
-		// Passa a variável correpondente à URL básica do site.
-		request.setAttribute("base_url", 	request.getScheme() + "://" + 
-											request.getServerName() + ":" + 
-											request.getServerPort() + 
-											httpRequest.getContextPath());
-		
 		// Verifica se existe a variável que controla a barra lateral e define ela.		
 		if (httpRequest.getSession(true).getAttribute("sidebar_collapse") == null)	
 			httpRequest.getSession().setAttribute("sidebar_collapse", false);

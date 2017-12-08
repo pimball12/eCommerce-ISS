@@ -8,27 +8,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>I wear A Ecommerce Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
-<link href="${base_url}/ecommerce/view/user/assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="${base_url}/view/user/assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="${base_url}/ecommerce/view/user/assets/js/jquery.min.js"></script>
+<script src="${base_url}/view/user/assets/js/jquery.min.js"></script>
 <!-- Custom Theme files -->
 <!--theme-style-->
-<link href="${base_url}/ecommerce/view/user/assets/css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<link href="${base_url}/view/user/assets/css/style.css" rel="stylesheet" type="text/css" media="all" />	
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="I wear Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<script type="text/javascript" src="${base_url}/ecommerce/view/user/assets/js/move-top.js"></script>
-<script type="text/javascript" src="${base_url}/ecommerce/view/user/assets/js/easing.js"></script>
+<script type="text/javascript" src="${base_url}/view/user/assets/js/move-top.js"></script>
+<script type="text/javascript" src="${base_url}/view/user/assets/js/easing.js"></script>
 <!--fonts-->
 <link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Montez' rel='stylesheet' type='text/css'>
 <!--//fonts-->
 <!-- start menu -->
 <!--//slider-script-->
-<script src="${base_url}/ecommerce/view/user/assets/js/easyResponsiveTabs.js" type="text/javascript"></script>
+<script src="${base_url}/view/user/assets/js/easyResponsiveTabs.js" type="text/javascript"></script>
 		    <script type="text/javascript">
 			    $(document).ready(function () {
 			        $('#horizontalTab').easyResponsiveTabs({
@@ -43,12 +43,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 	<!-- js -->
-		 <script src="${base_url}/ecommerce/view/user/assets/js/bootstrap.js"></script>
+		 <script src="${base_url}/view/user/assets/js/bootstrap.js"></script>
 	<!-- js -->
-<script src="${base_url}/ecommerce/view/user/assets/js/simpleCart.min.js"> </script>
+<script src="${base_url}/view/user/assets/js/simpleCart.min.js"> </script>
 <!-- start menu -->
-<link href="${base_url}/ecommerce/view/user/assets/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="${base_url}/ecommerce/view/user/assets/js/memenu.js"></script>
+<link href="${base_url}/view/user/assets/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="${base_url}/view/user/assets/js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>	
 <!-- /start menu -->
 </head>
@@ -71,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</li>
 					<li class="grid"><a href="contact.html">Contato</a>
 						
-					</li>
+					</li> 
 				</ul>
 				<div class="clearfix"> </div>
 			</div>
@@ -80,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a href="checkout.html">
 						<h3> <div class="total">
 							<span class="simpleCart_total"> </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> </span>)</div>
-							<img src="${base_url}/ecommerce/view/user/assets/images/cart2-2.png" alt=""/></h3>
+							<img src="${base_url}/view/user/assets/images/cart2-2.png" alt=""/></h3>
 						</a>
 						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 						<div class="clearfix"> </div>

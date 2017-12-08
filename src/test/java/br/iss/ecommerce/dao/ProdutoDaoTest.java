@@ -7,6 +7,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import br.iss.ecommerce.domain.Grupo;
+import br.iss.ecommerce.domain.Imagem;
 import br.iss.ecommerce.domain.Produto;
 
 public class ProdutoDaoTest {
@@ -29,7 +30,7 @@ public class ProdutoDaoTest {
 		produto.setPesoPadrao(	new BigDecimal(0.666));
 		produto.setGrupo(  		grupo);
 		
-		produtoDAO.save(produto);
+		produtoDAO.save(produto); 
 	}
 	
 	@Test
@@ -44,5 +45,6 @@ public class ProdutoDaoTest {
 			
 			System.out.println(produto.getNome() + " > " + produto.getPreco());
 		}
+		
 	}
 }
