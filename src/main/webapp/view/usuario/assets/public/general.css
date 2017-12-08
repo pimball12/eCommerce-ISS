@@ -1,0 +1,21 @@
+.vertical_resizeable	{
+	resize: vertical;
+	overflow: auto;
+}
+
+.disabled_div	{
+	pointer-events: none;
+    opacity: 0.6;
+}
+
+.top_15	{
+	margin-top: 15px;
+}
+
+.bottom_15	{
+	margin-bottom: 15px;
+}
+
+.alert	{
+	margin-bottom: 0px;
+}
