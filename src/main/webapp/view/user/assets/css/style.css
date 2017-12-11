@@ -1529,7 +1529,8 @@ ul.tag-men li{
 ul.tag-men li span.women1{
 	  margin-left: 9em;
 }
-a.add-cart {
+a.add-cart, 
+button.add-cart {
   text-decoration: none;
   color: #fff;
   background: #ff5d56;
@@ -1539,7 +1540,8 @@ a.add-cart {
   margin-top: 2.3em;
   display: inline-block;
 }
-a.add-cart:hover {
+a.add-cart, 
+button.add-cart:hover {
   background:#575757;
   
 }
@@ -2338,7 +2340,8 @@ li.ring-in img{
 	  width: 53%;
 	  margin-left: 5%;
 	}
-	a.add-cart {
+	a.add-cart, 
+	button.add-cart {
 	  font-size: 0.9em;
 	}
 	.close1, .close2 {
@@ -2602,7 +2605,8 @@ li.ring-in img{
 	.single-para h4 {
 	  font-size: 2em;
 	}
-	a.add-cart {
+	a.add-cart, 
+	button.add-cart {
 	  margin-bottom: 2em;
 	}
 	.cd-tabs.is-ended {
@@ -2869,7 +2873,8 @@ li.ring-in img{
 	.single-para h4 {
 	  font-size: 2em;
 	}
-	a.add-cart {
+	a.add-cart, 
+	button.add-cart {
 	  margin-bottom: 2em;
 	}
 	.cd-tabs.is-ended {
@@ -3156,7 +3161,8 @@ li.ring-in img{
 	.shipping {
 	  margin-top: 0em;
 	}
-	a.add-cart {
+	a.add-cart, 
+	button.add-cart {
 	  font-size: 0.9em;
 	  margin-top: 3em;
 	}
@@ -3578,7 +3584,8 @@ li.ring-in img{
 	ul.unit li,ul.cart-header li, ul.cart-header1 li {
 	  width: 25%;
 	}
-	a.add-cart {
+	a.add-cart, 
+	button.add-cart {
 	  font-size: 0.7em;
 	  margin-top: 3.5em;
 	}
@@ -4117,7 +4124,8 @@ li.ring-in img{
 	.available ul li select {
 	  padding: 7px;
 	}
-	a.add-cart {
+	a.add-cart, 
+	button.add-cart {
 	  font-size: 0.9em;
 	  margin-top: 1em;
 	}
@@ -4288,7 +4296,7 @@ li.ring-in img{
 	h6.jean {
 	  font-size: 1.3em;
 	  margin-top: 6px;
-	}
+	} 
 	.header-top-in {
 	  padding: 0;
 	}
