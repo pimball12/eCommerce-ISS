@@ -1,6 +1,10 @@
 package br.iss.ecommerce.domain;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -119,6 +123,36 @@ public class Produto extends GenericDomain {
 
 	public void setImagens(Set<Imagem> imagens) {
 		this.imagens = imagens;
+	}
+	
+	public List<Estoque> getEstoquesOrdered()	{
+		
+		List<Estoque> estoques = new ArrayList<Estoque>(getEstoques());
+		
+		Collections.sort(estoques, new Comparator<Estoque>() {
+
+			@Override
+			public int compare(Estoque e1, Estoque e2) {
+				
+				Object[] itens1 = e1.getItensGrade().toArray();
+				String text1 = "";
+				for(int i = 0; i < itens1.length; i++)	{
+					text1 += ((ItemGrade)itens1[i]).getGrade().getNome();
+					text1 += ((ItemGrade)itens1[i]).getValor();
+				}
+				
+				Object[] itens2 = e2.getItensGrade().toArray();
+				String text2 = "";
+				for(int i = 0; i < itens2.length; i++)	{
+					text2 += ((ItemGrade)itens2[i]).getGrade().getNome();
+					text2 += ((ItemGrade)itens2[i]).getValor();
+				}				
+				
+				return text1.compareTo(text2);
+			}
+		});		
+		
+		return estoques;
 	}
 	
 }

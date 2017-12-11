@@ -12,11 +12,11 @@
         <!---->
         <div class="col-md-12 product-price1">
             <div class="col-md-5 single-top">
-                <div class="flexslider">
+                <div class="flexslider ">
                     <ul class="slides">
                         <c:forEach items="${produto.getImagens()}" var="imagem">
 							<li>
-	                            <img src="${base_url}/adm/imagem/get?path=${imagem.getCaminho()}" />
+	                            <img class="zoom" src="${base_url}/adm/imagem/get?path=${imagem.getCaminho()}" />
 	                        </li>                                    
                         </c:forEach>      
                     </ul>
@@ -44,54 +44,51 @@
                             <li><a href="#"><i> </i></a></li>
                             <li><a href="#"><i> </i></a></li>
                         </ul>
-                        <div class="review">
-                            <a href="#"> 1 customer review </a>
-                        </div>
                         <div class="clearfix"> </div>
                     </div>
                     <h5 class="item_price"><fmt:formatNumber value="${produto.getPreco()}" type = "currency" /></h5>
+                    <form action="${base_url}/produto/add" method="POST">
                     <div class="available" style="border-bottom: 1px solid #C4C3C3">
                         <ul>
-                            <li class="size-in">
-                                Color
-                                <select>
-                                    <option>Silver</option>
-                                    <option>Black</option>
-                                    <option>Dark Black</option>
-                                    <option>Red</option>
+                            <li>
+                                Opções
+                                <select name="estoque_id">
+                                	<c:forEach items="${produto.getEstoquesOrdered()}" var="estoque">
+                                	<c:if test="${estoque.getQuantidade() - estoque.getReservado() > 0 }">
+                                	<option value="${estoque.getId()}">
+										<c:forEach items="${estoque.getItensGrade()}" var="itemGrade">
+                                    	|&nbsp;&nbsp;&nbsp;
+										${String.format("%1$-20s", itemGrade.getGrade().getNome().concat(" : ").concat(itemGrade.getValor())).replace(' ', '&nbsp;')}
+										</c:forEach>
+										|
+									</option> 
+                                    </c:if>
+                                    </c:forEach>  
                                 </select>
-                            </li>
-                            <li class="size-in">
-                                Size
-                                <select>
-                                    <option>Large</option>
-                                    <option>Medium</option>
-                                    <option>small</option>
-                                    <option>Large</option>
-                                    <option>small</option>
-                                </select>
-                            </li>
-                            <li class="size-in">
-                                Size
-                                <select>
-                                    <option>Large</option>
-                                    <option>Medium</option>
-                                    <option>small</option>
-                                    <option>Large</option>
-                                    <option>small</option>
-                                </select>
-                            </li>                            
+                            </li>           
                             <div class="clearfix"> </div>
                         </ul>
                     </div>
-                    
-                    <a href="#" class="add-cart item_add">ADD TO CART</a>
+                     
+                    <button type="submit" class="add-cart">Adicionar ao Carrinho</button> 
+                    </form>
                 </div>
             </div>
-            <div class="clearfix"> </div>
+            <div class="clearfix"> </div> 
             <!---->
         </div>
         <div class="clearfix"> </div>
     </div>
-</div>
+</div>	
+
+<script type="text/javascript" src="${base_url}/view/user/assets/js/magnify.js"></script>
+<script>
+	$(function()	{
+		$(".zoom").okzoom({
+			width:	200,
+			height:	200
+		});
+	});
+</script>
+
 <jsp:include page="/view/user/partial/footer.jsp"/>

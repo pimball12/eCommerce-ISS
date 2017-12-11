@@ -47,14 +47,15 @@
   padding: 0;
 }
 .flexslider .slides > li {
-  display: none;
   -webkit-backface-visibility: hidden;
     height: 318px !important;
-}
+    display: inline-flex !important;
+}	
 .flexslider .slides img {
-  width: 100%;
   display: block;
-    padding: 13%;
+  max-height: 75%%;
+  max-width: 75%;
+  margin: auto 12.5%;
 }
 .flexslider .slides:after {
   content: "\0020";
@@ -78,7 +79,7 @@ html[xmlns] .flexslider .slides {
  * ====================================================================================================================*/
 .flexslider {
   margin: 0 0 60px;
-  background: #ffffff;
+  background: rgba(0, 0, 0, 0.09);
   border: 4px solid #ffffff;
   position: relative;
   zoom: 1;
@@ -95,7 +96,6 @@ html[xmlns] .flexslider .slides {
 }
 .flexslider .slides img {
   height: auto;
-    margin-top: 3em;
 }
 .flex-viewport {
   max-height: 2000px;
@@ -139,16 +139,24 @@ html[xmlns] .flexslider .slides {
   text-indent: -9999px ;
 }
 
+.flex-direction-nav .flex-prev,
+.flex-direction-nav .flex-next	{
+	 
+	opacity: 1;
+	border-radius: 20px;
+}
+
 .flex-direction-nav .flex-prev {
   
-	opacity: 1;
   background: url(../images/larrow.png);
+  background-color: rgba(0, 0, 0, 0.4);
   
 }
 .flex-direction-nav .flex-next {
-  right: 0;
-	opacity: 1;
+  
+  right: 0px;
    background: url(../images/rarrow.png);
+   background-color: rgba(0, 0, 0, 0.4);
    
 }
 
