@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>I wear A Ecommerce Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
+<title>Barata Shop</title>
 <link href="${base_url}/view/user/assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="${base_url}/view/user/assets/js/jquery.min.js"></script>
@@ -42,9 +42,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  		 <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-	<!-- js -->
-		 <script src="${base_url}/view/user/assets/js/bootstrap.js"></script>
-	<!-- js -->
+<!-- js -->
+<script src="${base_url}/view/user/assets/js/bootstrap.js"></script>
+<!-- js -->
 <script src="${base_url}/view/user/assets/js/simpleCart.min.js"> </script>
 <!-- start menu -->
 <link href="${base_url}/view/user/assets/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
@@ -60,16 +60,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-bottom">
 			<div class="container">			
 				<div class="logo">
-					<h1><a href="index.html">Barata<span>Shop</span></a></h1>
+					<h1><a href="${base_url}">Barata<span>Shop</span></a></h1>
 				</div>
 		 <!---->
 		 
 			<div class="top-nav">
 				<ul class="memenu skyblue">
-					<li class="grid"><a href="typography.html">Início</a>
+					<li class="grid"><a href="${base_url}">Início</a>
 						
 					</li>
-					<li class="grid"><a href="contact.html">Contato</a>
+					<li class="grid"><a href="${base_url}/contato">Contato</a>
 						
 					</li> 
 				</ul>
@@ -77,12 +77,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 					<!---->
 					<div class="cart box_1">
-						<a href="checkout.html">
+						<a href="${base_url}/carrinho"> 
 						<h3> <div class="total">
-							<span class="simpleCart_total"> </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> </span>)</div>
+								$0.00 (0)</div>
 							<img src="${base_url}/view/user/assets/images/cart2-2.png" alt=""/></h3>
 						</a>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+						<p><a href="${base_url}/carrinho" class="simpleCart_empty">Carrinho</a></p>  
 						<div class="clearfix"> </div>
 					</div>
 
