@@ -2,8 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/view/user/partial/header.jsp"/>
-
-<!--start-shoes--> 
+ 
 <div class="goggles"> 
 	<div class="container"> 
 	

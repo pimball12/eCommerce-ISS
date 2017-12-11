@@ -33,7 +33,7 @@ public class Pessoa extends GenericDomain {
 	@OneToMany(mappedBy="pessoa")
 	private Set<Endereco> enderecos;
 
-	publlic Pessoa() {
+	public Pessoa() {
 		this.enderecoPrincial = new Endereco();
 	}
 	

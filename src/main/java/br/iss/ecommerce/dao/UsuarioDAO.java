@@ -1,5 +1,7 @@
 package br.iss.ecommerce.dao;
 
-public class UsuarioDAO {
+import br.iss.ecommerce.domain.Usuario;
+
+public class UsuarioDAO extends GenericDAO<Usuario>{
 
 }
