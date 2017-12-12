@@ -157,12 +157,12 @@ ul.support-right li i.tele {
 	color:#fff;
 }
 .logo{
-	float:left;
+	float:left; 
 	  margin-top: 0.5em;
 }
 .top-nav{
   margin-top: 0;
-  width: 60%;
+  width: 50%;
   margin: 2% auto 0;
   display: block;
   float: left;
@@ -2030,13 +2030,14 @@ a.more:hover {
 	  margin: 2em 0 2em;
 }
 ul.unit{
-	background:#ff5d56;
+	background:rgba(0, 0, 0, 0.5);
 	padding:1em;
 }
 ul.unit li {
 	display:inline-block;
 	 width:20%;
 	  float:left;
+	  text-align: center;
 	}
  ul.unit li span{
 	display:inline-block;
@@ -2082,6 +2083,7 @@ ul.cart-header li span,ul.cart-header1 li span,ul.cart-header2 li span,ul.cart-h
 }
 li.ring-in img{
   margin: 0 auto;
+  padding: 29px;
 }
 .cart-items h3 {
   font-size: 2em;
@@ -2107,6 +2109,19 @@ li.ring-in img{
   text-indent: 100%;
   background: url("../images/to-top1.png") no-repeat 0px 0px;
 }
+.btn-cart-submit	{
+	padding: 0.4em 0.8em;
+	background-color: rgb(241, 196, 15);
+	color: white;
+	cursor: pointer;
+	float: right;
+	border: none;
+}
+
+.btn-cart-submit:hover {
+	color: white;
+}
+
 /*--responsive--*/
 @media(max-width:1366px){
 	.now {
