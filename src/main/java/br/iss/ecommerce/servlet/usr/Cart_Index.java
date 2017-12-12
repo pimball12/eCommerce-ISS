@@ -13,18 +13,20 @@ import br.iss.ecommerce.dao.ImagemDAO;
 import br.iss.ecommerce.dao.ItemGradeDAO;
 import br.iss.ecommerce.domain.Estoque;
 
-
+/**
+ * Servlet implementation class Cart_Index
+ */
 @WebServlet("/cart")
-public class Cart_index extends HttpServlet {
+public class Cart_Index extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	
-    public Cart_index() {
+    public Cart_Index() {
         
     	super();
     }
 
-
+    
 	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

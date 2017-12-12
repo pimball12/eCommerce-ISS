@@ -21,9 +21,19 @@
                             <li><span>Quantidade</span></li>
                             <div class="clearfix"> </div>
                         </ul>
-                        <c:forEach items="${cart}" var="item">
+                        <c:if test="${cart.isEmpty()}">
                         <ul class="cart-header">
-                            <a href="${base_url}/produto/remove?id=${item.getProduto().getId()}" class="close1"></a>
+	                        <li><span></span></li>
+	                        <li><span></span></li>
+	                        <li><span><h4>Não há itens no carrinho</h4> </span></li>
+	                        <li><span></span></li>
+	                        <li><span></span></li>
+	                        <div class="clearfix"> </div>
+                        </ul>
+                        </c:if>
+                        <c:forEach items="${cart}" var="item">
+                        <ul class="cart-header"> 
+                            <a href="${base_url}/produto/remove?estoque_id=${item.getId()}" class="close1"></a>
                             <c:set var="imagens" value="${imagemDAO.listByProduto(item.getProduto().getId())}"></c:set>
                             <li class="ring-in"><a href="${base_url}/produto?id=${item.getProduto().getId()}"><img src="${base_url}/adm/imagem/get?path=${imagens.size() > 0 ? imagens.toArray()[0].getCaminho() : ''}" class="img-responsive" alt=""></a>
                             </li>
