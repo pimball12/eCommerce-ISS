@@ -55,7 +55,7 @@
                         <li><span>Total: <fmt:formatNumber value="${cart_total}" type = "currency" /></span></li>                        
                         <li><span></span></li>
                         <li><span></span></li>
-                        <li><a class="btn-cart-submit" />FECHAR PEDIDO</a></li>
+                        <li><a href="${base_url}/cart/finish" class="btn-cart-submit" />FECHAR PEDIDO</a></li>
                         <div class="clearfix"> </div>
                     </ul>
                 </div>

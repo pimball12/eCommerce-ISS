@@ -1753,6 +1753,78 @@ a.add-re:hover{
 	padding: 30px;
 	background: rgba(0,0,0, 0.1);
 }
+
+/*--General Form--*/
+.general-form-top h3,.general-form-top-in h3{
+	font-size: 1.2em;
+	color: #ff5d56;
+	text-transform: uppercase;
+	font-weight: 600;
+	padding:0 0 1em;
+}
+.general-form-top div{
+	padding:0.5em 0;
+}
+.general-form {
+	padding:4em 0 0;
+}
+.general-form-top div input[type="text"], .general-form-top div textarea {
+	width: 100%;
+	padding: 0.7em;
+	margin:0.4em 0 0;
+	background: white;
+	outline: none;
+	border: 1px solid #000;
+	-webkit-appearance: none;
+}
+.general-form-top div textarea{
+	height:230px;
+	resize:none;
+}
+.general-form-top div span{
+	color:#000;
+	font-size: 1em;
+}
+.general-form-top input[type="submit"],
+.general-form-top a,
+.general-form-top button{
+	background: #ff5d56;
+	color:#fff;
+	font-size:1.1em;
+	border:none;
+	outline:none;	
+	font-weight: 600;
+	padding:0.5em 1em;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	border: 1px solid #ff5d56;
+	display: inline-block;
+	cursor: pointer;	
+}
+.general-form-top input[type="submit"]:hover{
+	background:none;
+	border: 1px solid #000;
+	color:#000;
+	
+}
+.general-form-top-in p{
+	font-size: 1em;
+	color: #494949;
+	line-height: 1.6em;
+	padding: 0.5em 0 1em;
+}
+.map iframe {
+  width: 100%;
+  min-height: 221px;
+  border: none;
+}
+.general-form-top{
+	padding: 30px;
+	background: rgba(0,0,0, 0.1);
+}
+
 /*--login--*/
 .login-left {
 	padding: 0;
