@@ -2,11 +2,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/view/user/partial/header.jsp"/>
- 
+
+<div class="back">
+    <h2>Conheça Nossos Produtos</h2>
+</div>
+
+<!--start-shoes--> 
 <div class="goggles"> 
 	<div class="container"> 
-	
-		<h2>Conheça Nossos Produtos!</h2>
 		
 		<c:set var="counter" value="0"/>
 		<c:forEach var="produto" items="${produtos}">

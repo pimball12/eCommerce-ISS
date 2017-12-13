@@ -6,7 +6,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import br.iss.ecommerce.domain.Endereco;
 import br.iss.ecommerce.domain.Parametro;
@@ -15,26 +14,40 @@ import br.iss.ecommerce.util.HibernateUtil;
 public class ParametroDAO extends GenericDAO<Parametro> {
 	public Parametro getFirstOrCreate()	
 	{
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		HibernateUtil.closeLastSession();
+		Session session = HibernateUtil.getSession();
 		
-		try	
-		{
+		try		{
 			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaQuery<Parametro> query = builder.createQuery(currentClass);
 			Root<Parametro> root = query.from(currentClass);  
 			query.select(root);
-			Parametro result = session.createQuery(query).getSingleResult();
+			Parametro parametro = session.createQuery(query).getSingleResult();
 			
-			if (result == null)
-			{
-				result = new Parametro();
-				result.setRemetente(new Endereco());
-			}
+			return parametro;
+		} catch(NoResultException error) 	{
 			
-			return result;
-		} catch(NoResultException error) 
-		{
-			return null;
+			EnderecoDAO enderecoDAO = new EnderecoDAO();
+			Endereco endereco = new Endereco();
+			endereco.setBairro("");
+			endereco.setCep("");
+			endereco.setCidade("");
+			endereco.setComplemento("");
+			endereco.setEstado("");
+			endereco.setNumero("");
+			endereco.setPais("");
+			endereco.setRua("");
+			enderecoDAO.save(endereco);
+			
+			Parametro parametro = new Parametro();
+			parametro.setEmail("");
+			parametro.setRemetente(endereco);
+			
+			save(parametro);
+			
+			System.out.println(error.getMessage()); 
+			
+			return parametro;
 		} catch(RuntimeException error)	
 		{
 			throw error;

@@ -16,11 +16,11 @@ import br.iss.ecommerce.domain.Produto;
  * Servlet implementation class Inicio
  */
 @WebServlet("")
-public class Main extends HttpServlet {
+public class Main_Index extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-    public Main() {
+    public Main_Index() {
         
     	super();
     }

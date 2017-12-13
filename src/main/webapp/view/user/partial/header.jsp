@@ -1,3 +1,4 @@
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!--A Design by W3layouts 
 Author: W3layout
 Author URL: http://w3layouts.com
@@ -77,14 +78,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 					<!---->
 					<div class="cart box_1">
-						<a href="${base_url}/carrinho"> 
+						<a href="${base_url}/cart"> 
 						<h3> <div class="total">
-								$0.00 (0)</div>
+								<fmt:formatNumber value="${cart_total}" type = "currency" /> (${cart_quant})</div>
 							<img src="${base_url}/view/user/assets/images/cart2-2.png" alt=""/></h3>
 						</a>
-						<p><a href="${base_url}/carrinho" class="simpleCart_empty">Carrinho</a></p>  
+						<p><a href="${base_url}/cart" class="simpleCart_empty">Carrinho</a></p>  
 						<div class="clearfix"> </div>
 					</div>
+
+					<div class="cart box_1">  
+					    <p><a href="http://localhost:8080/user/auth" class="simpleCart_empty"><i class="glyphicon glyphicon-user"> </i>Login</a></p>
+					    <br>
+					    <p><a href="http://localhost:8080/user/create" class="simpleCart_empty"><i class="glyphicon glyphicon-lock"> </i>Cadastrar</a></p>
+					</div>
+					
 
 <div class="clearfix"> </div>
 					<!---->

@@ -157,12 +157,12 @@ ul.support-right li i.tele {
 	color:#fff;
 }
 .logo{
-	float:left;
+	float:left; 
 	  margin-top: 0.5em;
 }
 .top-nav{
   margin-top: 0;
-  width: 60%;
+  width: 50%;
   margin: 2% auto 0;
   display: block;
   float: left;
@@ -460,10 +460,10 @@ span.dollor{
 	-ms-transition: 0.5s all ease;
 }
 .product-left:hover .p-one img{
-	-webkit-transform: scale(0.9);
+	-webkit-transform: scale(1.2);
 	/* Webkit: Scale up image to 1.2x original size; */
-	-moz-transform: scale(0.9);
-	-o-transform: scale(0.9);
+	-moz-transform: scale(1.2);
+	-o-transform: scale(1.2);
 	opacity: 1;
 }
 .p-one img {
@@ -1539,6 +1539,7 @@ button.add-cart {
   text-transform: uppercase;
   margin-top: 2.3em;
   display: inline-block;
+  border-style: none;
 }
 a.add-cart, 
 button.add-cart:hover {
@@ -1703,7 +1704,7 @@ a.add-re:hover{
 	width: 100%;
 	padding: 0.7em;
 	margin:0.4em 0 0;
-	background: none;
+	background: white;
 	outline: none;
 	border: 1px solid #000;
 	-webkit-appearance: none;
@@ -1749,8 +1750,8 @@ a.add-re:hover{
   border: none;
 }
 .contact-top{
-	width:70%;
-	  margin-top: 3em;
+	padding: 30px;
+	background: rgba(0,0,0, 0.1);
 }
 /*--login--*/
 .login-left {
@@ -2019,7 +2020,7 @@ a.more:hover {
   height: 28px;
   position: absolute;
     left: 8px;
-  top: 52px;
+  top: 7em;
   -webkit-transition: color 0.2s ease-in-out;
   -moz-transition: color 0.2s ease-in-out;
   -o-transition: color 0.2s ease-in-out;
@@ -2030,13 +2031,14 @@ a.more:hover {
 	  margin: 2em 0 2em;
 }
 ul.unit{
-	background:#ff5d56;
+	background:rgba(0, 0, 0, 0.5);
 	padding:1em;
 }
 ul.unit li {
 	display:inline-block;
 	 width:20%;
 	  float:left;
+	  text-align: center;
 	}
  ul.unit li span{
 	display:inline-block;
@@ -2048,7 +2050,7 @@ ul.unit li {
 
 ul.cart-header{
  padding:1em;
-	background:#f8f8f8;
+	background:rgba(248, 248, 248, 0.7);
 	  border-bottom: 1px solid #ff5d56;
 }
 ul.cart-header1{
@@ -2082,6 +2084,7 @@ ul.cart-header li span,ul.cart-header1 li span,ul.cart-header2 li span,ul.cart-h
 }
 li.ring-in img{
   margin: 0 auto;
+  padding: 29px;
 }
 .cart-items h3 {
   font-size: 2em;
@@ -2107,6 +2110,19 @@ li.ring-in img{
   text-indent: 100%;
   background: url("../images/to-top1.png") no-repeat 0px 0px;
 }
+.btn-cart-submit	{
+	padding: 0.4em 0.8em;
+	background-color: rgb(241, 196, 15);
+	color: white;
+	cursor: pointer;
+	float: right;
+	border: none;
+}
+
+.btn-cart-submit:hover {
+	color: white;
+}
+
 /*--responsive--*/
 @media(max-width:1366px){
 	.now {
