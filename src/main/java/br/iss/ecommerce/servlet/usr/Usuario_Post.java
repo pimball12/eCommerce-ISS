@@ -22,13 +22,7 @@ public class Usuario_Post extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// // Cria os objetos DAO.
-		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		
-		// Define os objetos de Persistência.
-		Usuario usuario;
-		
-		// Recupera as propriedades da grade.
 		String 	nome        = request.getParameter("nome");
 		String 	sobrenome   = request.getParameter("sobrenome");
 		String 	cpf	        = request.getParameter("cpf");
@@ -43,7 +37,7 @@ public class Usuario_Post extends HttpServlet {
 		String 	complemento = request.getParameter("complemento");
 		String 	bairro      = request.getParameter("bairro");
 		
-		// Passa os outros atributos. 
+		Usuario usuario;
 		usuario = new Usuario();
 		usuario.setEmail(email);
 		usuario.setSenha(senha);
@@ -68,14 +62,12 @@ public class Usuario_Post extends HttpServlet {
 		pessoa.setEnderecoPrincial(endereco);
 		usuario.setPessoa(pessoa);
 		
-		// Salva o item e seta a mensagem de sucesso.
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		usuarioDAO.save(usuario);
+		
 		request.getSession().setAttribute("flash_message_text", "usuario adicionada com sucesso.");
-			
-		// Seta o tipo de mensagem como de sucesso e redireciona para a tela de edição daquela grade.
 		request.getSession().setAttribute("flash_message_kind", "success");
-		response.sendRedirect(	request.getAttribute("base_url") + 
-								"/user/usuario_form.jsp");  		
+		response.sendRedirect(request.getAttribute("base_url") + "/user/usuario_form.jsp");  		
 	}
 
 }
