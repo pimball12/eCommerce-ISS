@@ -24,6 +24,11 @@ public class Usuario extends GenericDomain {
 	@JoinColumn(name="PESSOA_ID")
 	private Pessoa pessoa;
 
+	public Usuario() {
+		this.pessoa = new Pessoa();
+		
+	}
+	
 	public String getEmail() {
 		return email;
 	}
