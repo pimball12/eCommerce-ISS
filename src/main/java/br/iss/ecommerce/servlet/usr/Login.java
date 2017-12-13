@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.iss.ecommerce.dao.UsuarioDAO;
 
-@WebServlet("/login")
+@WebServlet("/user/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
