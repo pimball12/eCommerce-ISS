@@ -53,7 +53,7 @@
                     <ul class="unit">                     
                         <li ><span></span></li>
                         <li><span></span></li>
-						<li style="text-align: right;"><span>Quantidade: ${cart_quant}</span></li> 
+						<li style="text-align: right;"><span>Itens: ${cart_quant}</span></li> 
                         <li style="text-align: right;"><span>Total: <fmt:formatNumber value="${cart_total}" type = "currency" /></span></li>                           
                         <c:if test="${cart.size() > 0}">
                         <li><a href="${base_url}/cart/finish" class="btn-cart-submit" />FECHAR PEDIDO</a></li>

@@ -31,6 +31,12 @@ public class Cart_Finish extends HttpServlet {
 		// Passa o carrinho para a chamada.
 		request.setAttribute("cart", (LinkedList<Estoque>)request.getSession().getAttribute("cart"));
 		
+		// Passa o dao de imagem e estoque para a view.
+		ImagemDAO imagemDAO = new ImagemDAO();
+		ItemGradeDAO itemGradeDAO = new ItemGradeDAO();
+		request.setAttribute("imagemDAO", imagemDAO);
+		request.setAttribute("itemGradeDAO", itemGradeDAO);		
+		
 		// Chama a view.
 		request.getRequestDispatcher("/view/user/finish.jsp").forward(request, response);		
 	}
