@@ -30,7 +30,7 @@
                 </div>
                 <div class=" login-left">
                     <h3>Novo Cliente?</h3>
-                    <a class="acount-btn" href="/user/create">Criar conta!</a>
+                    <a class="acount-btn" href="${base_url}/user/create">Criar conta!</a>
                 </div>
             </div>
         </div>

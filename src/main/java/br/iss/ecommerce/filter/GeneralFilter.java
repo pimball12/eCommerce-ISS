@@ -45,6 +45,10 @@ public class GeneralFilter implements Filter {
 											request.getServerPort() + 
 											httpRequest.getContextPath());
 		
+		// Verifica se ha usuario na sessao e cria ele.
+		if (httpRequest.getSession().getAttribute("user") != null)
+			httpRequest.setAttribute("user", httpRequest.getSession().getAttribute("user"));
+		
 		// Verifica se já existe um carrinho e se não houver, cria ele.
 		if (httpRequest.getSession().getAttribute("cart") == null)
 			httpRequest.getSession().setAttribute("cart", new LinkedList<Estoque>());

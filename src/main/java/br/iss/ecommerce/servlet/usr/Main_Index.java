@@ -27,13 +27,13 @@ public class Main_Index extends HttpServlet {
 		
 		// Define classes DAO.
 		ProdutoDAO produtoDAO = new ProdutoDAO();
-		
-		// Define objetos de persistência.
+		 
+		// Define objetos de persistência. 
 		List<Produto> produtos = produtoDAO.listAvaiable();
 		
 		// Seta atributos da chamada.
 		request.setAttribute("produtos", produtos);
-		
+		 
 		// Chama a view.
 		request.getRequestDispatcher("/view/user/main.jsp").forward(request, response);
 	}
