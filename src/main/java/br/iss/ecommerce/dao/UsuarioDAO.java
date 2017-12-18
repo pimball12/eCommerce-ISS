@@ -28,7 +28,7 @@ public class UsuarioDAO extends GenericDAO<Usuario>{
 			.setParameter("senha", senha)
 			.list();
 			
-		    return usuarios.isEmpty() ? usuarios.get(0) : null;
+		    return !usuarios.isEmpty() ? usuarios.get(0) : null;
 		} catch(NoResultException error)	{
 			
 			return null;

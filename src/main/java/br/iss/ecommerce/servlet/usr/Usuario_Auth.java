@@ -31,8 +31,8 @@ public class Usuario_Auth extends HttpServlet {
 		if (autenticado != null) {
 			mensagemTexto = "Autenticado com sucesso!";
 			mensagemTipo = "success";
-			uri = "/user/main";
-			request.getSession().setAttribute("usuario", autenticado);
+			uri = "";
+			request.getSession().setAttribute("user", autenticado);
 		}else {
 			mensagemTexto = "Falha de Autenticacao!";
 			mensagemTipo = "error";
