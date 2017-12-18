@@ -1938,14 +1938,16 @@ a.forgot {
 	display: block;
 	text-transform: uppercase;
 }
-.register input[type="text"] {
+.register input[type="text"],
+.register input[type="password"] {
 	border: 1px solid #000;
 	outline:none;
 	width: 100%;
 	font-size:0.9em;
 	padding:10px;
 }
-.register input[type="text"]:hover {
+.register input[type="text"]:hover,
+.register input[type="password"]:hover {
 		border: 1px solid #ff5d56;
 }
 .register  input[type="submit"] {
