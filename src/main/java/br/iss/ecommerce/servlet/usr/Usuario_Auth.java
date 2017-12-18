@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.iss.ecommerce.dao.UsuarioDAO;
+import br.iss.ecommerce.domain.Usuario;
 
 @WebServlet("/user/auth")
 public class Usuario_Auth extends HttpServlet {
@@ -25,12 +26,13 @@ public class Usuario_Auth extends HttpServlet {
 		UsuarioDAO usuarioDao = new UsuarioDAO();
 		String mensagemTexto, mensagemTipo, uri;
 		
-		boolean autenticado = usuarioDao.tryLogin(login, senha);
+		Usuario autenticado = usuarioDao.tryLogin(login, senha);
 				
-		if (autenticado) {
+		if (autenticado != null) {
 			mensagemTexto = "Autenticado com sucesso!";
 			mensagemTipo = "success";
 			uri = "/user/main";
+			request.getSession().setAttribute("usuario", autenticado);
 		}else {
 			mensagemTexto = "Falha de Autenticacao!";
 			mensagemTipo = "error";
