@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.iss.ecommerce.dao.ProdutoDAO;
 import br.iss.ecommerce.domain.Produto;
 
-/**
- * Servlet implementation class Inicio
- */
+
 @WebServlet("")
 public class Main_Index extends HttpServlet {
 

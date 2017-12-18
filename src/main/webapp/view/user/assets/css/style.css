@@ -1327,9 +1327,7 @@ ul.start li {
 	display: inline-block;
     
 }
-.product-price1 {
-  padding-left: 55px;
-}
+
 ul.start li.arrow a, ul.start li span {
 	text-decoration: none;
 	color: #ddd;
@@ -1753,6 +1751,89 @@ a.add-re:hover{
 	padding: 30px;
 	background: rgba(0,0,0, 0.1);
 }
+
+/*--General Form--*/
+.general-form-top h3,.general-form-top-in h3{
+	font-size: 1.2em;
+	color: #ff5d56;
+	text-transform: uppercase;
+	font-weight: 600;
+	padding:0 0 1em;
+}
+.general-form-top div{
+	padding:0.5em 0;
+}
+.general-form {
+	padding:4em 0 0;
+}
+.general-form-top div input[type="text"], .general-form-top div textarea {
+	width: 100%;
+	padding: 0.7em;
+	margin:0.4em 0 0;
+	background: white;
+	outline: none;
+	border: 1px solid #000;
+	-webkit-appearance: none;
+}
+.general-form-top div textarea{
+	height:230px;
+	resize:none;
+}
+.general-form-top div span{
+	color:#000;
+	font-size: 1em;
+}
+.general-form-top input[type="submit"],
+.general-form-top a,
+.general-form-top button{
+	background: #ff5d56;
+	color:#fff;
+	font-size:1.1em;
+	border:none;
+	outline:none;	
+	font-weight: 600;
+	padding:0.5em 1em;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	border: 1px solid #ff5d56;
+	display: inline-block;
+	cursor: pointer;	
+}
+.general-form-top input[type="submit"]:hover{
+	background:none;
+	border: 1px solid #000;
+	color:#000;
+	
+}
+.general-form-top-in p{
+	font-size: 1em;
+	color: #494949;
+	line-height: 1.6em;
+	padding: 0.5em 0 1em;
+}
+
+.general-form select	{
+  outline: none;
+  padding: 12px;
+  border: none;
+  background: #eeeeee;
+  width: 100%;
+  margin-top: 4px;
+  cursor:pointer;	
+}
+
+.map iframe {
+  width: 100%;
+  min-height: 221px;
+  border: none;
+}
+.general-form-top{
+	padding: 30px;
+	background: rgba(242, 242, 242, 0.7);
+}
+
 /*--login--*/
 .login-left {
 	padding: 0;
@@ -2020,7 +2101,7 @@ a.more:hover {
   height: 28px;
   position: absolute;
     left: 8px;
-  top: 7em;
+  top: 6em;
   -webkit-transition: color 0.2s ease-in-out;
   -moz-transition: color 0.2s ease-in-out;
   -o-transition: color 0.2s ease-in-out;
@@ -2094,9 +2175,6 @@ li.ring-in img{
 .cart-header,.cart-header1{
 	position:relative;
 }
-.cart-items {
-  padding: 0 1em;
-}
 #toTop {
   display: none;
   text-decoration: none;
@@ -2121,6 +2199,13 @@ li.ring-in img{
 
 .btn-cart-submit:hover {
 	color: white;
+}
+
+.container-header	{
+	background-color: #ffdfddb3;
+	color: #ff5d56;
+	padding: 0.2em;
+	text-align: center;
 }
 
 /*--responsive--*/

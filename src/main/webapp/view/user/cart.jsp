@@ -17,8 +17,8 @@
                         <ul class="unit">
                             <li><span>Item</span></li>
                             <li><span>Produto </span></li>
-                            <li><span>Preço</span></li>
-                            <li><span>Quantidade</span></li>
+                            <li style="text-align: right;"><span >Quantidade</span></li>
+                            <li style="text-align: right;"><span >Preço</span></li>
                             <div class="clearfix"> </div>
                         </ul>
                         <c:if test="${cart.isEmpty()}">
@@ -44,18 +44,20 @@
                             	 ; ${itemGrade.getGrade().getNome()}:${itemGrade.getValor()}
                             	</c:forEach>
                             </span></li>
-                            <li><span><fmt:formatNumber value="${item.getProduto().getPreco()}" type = "currency" /></span></li>
-                            <li><span>1 <!-- Modificar --></span></li>
+                            <li><span style="text-align: right;">1 <!-- Modificar --></span></li>
+                            <li><span style="text-align: right;"><fmt:formatNumber value="${item.getProduto().getPreco()}" type = "currency" /></span></li>
                             <div class="clearfix"> </div>
                         </ul> 						
 						</c:forEach>
                     </div>
-                    <ul class="unit">
-                        <li><span>Quantidade: ${cart_quant}</span></li>
-                        <li><span>Total: <fmt:formatNumber value="${cart_total}" type = "currency" /></span></li>                        
+                    <ul class="unit">                     
+                        <li ><span></span></li>
                         <li><span></span></li>
-                        <li><span></span></li>
-                        <li><a class="btn-cart-submit" />FECHAR PEDIDO</a></li>
+						<li style="text-align: right;"><span>Itens: ${cart_quant}</span></li> 
+                        <li style="text-align: right;"><span>Total: <fmt:formatNumber value="${cart_total}" type = "currency" /></span></li>                           
+                        <c:if test="${cart.size() > 0}">
+                        <li><a href="${base_url}/cart/finish" class="btn-cart-submit" />FECHAR PEDIDO</a></li>
+                        </c:if>
                         <div class="clearfix"> </div>
                     </ul>
                 </div>

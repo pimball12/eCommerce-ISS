@@ -35,7 +35,6 @@
         	</div>
         </div>
         <div class="clearfix"> </div>
-        <p class="footer-class">Copyrights © 2015 I Wear. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
     </div>
 </div>
 

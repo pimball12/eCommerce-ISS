@@ -36,16 +36,7 @@
             <div class="col-md-7 single-top-in simpleCart_shelfItem">
                 <div class="single-para ">
                     <h4>${produto.getNome()}</h4>
-                    <div class="star-on">
-                        <ul class="star-footer">
-                            <li><a href="#"><i> </i></a></li>
-                            <li><a href="#"><i> </i></a></li>
-                            <li><a href="#"><i> </i></a></li>
-                            <li><a href="#"><i> </i></a></li>
-                            <li><a href="#"><i> </i></a></li>
-                        </ul>
-                        <div class="clearfix"> </div>
-                    </div>
+                    <p>${produto.getDescricao()}</p>
                     <h5 class="item_price"><fmt:formatNumber value="${produto.getPreco()}" type = "currency" /></h5>
                     <form action="${base_url}/produto/add" method="POST">
                     <div class="available" style="border-bottom: 1px solid #C4C3C3">
