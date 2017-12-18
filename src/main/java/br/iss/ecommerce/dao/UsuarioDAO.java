@@ -9,7 +9,7 @@ import br.iss.ecommerce.domain.Usuario;
 import br.iss.ecommerce.util.HibernateUtil;
 
 public class UsuarioDAO extends GenericDAO<Usuario>{
-	public boolean tryLogin(String login, String senha)	{
+	public Usuario tryLogin(String login, String senha)	{
 		
 		HibernateUtil.closeLastSession();
 		Session session = HibernateUtil.getSession();
@@ -28,10 +28,10 @@ public class UsuarioDAO extends GenericDAO<Usuario>{
 			.setParameter("senha", senha)
 			.list();
 			
-		    return !usuarios.isEmpty()  ;
+		    return usuarios.isEmpty() ? usuarios.get(0) : null;
 		} catch(NoResultException error)	{
 			
-			return false;
+			return null;
 		} catch(RuntimeException error)	{
 			
 			throw error;

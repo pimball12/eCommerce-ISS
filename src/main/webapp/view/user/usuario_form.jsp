@@ -35,11 +35,11 @@
 			                </div>
 			                <div>
 			                    <span>Senha</span>
-			                    <input type="text" name="senha" required>						 
+			                    <input type="password" name="senha" required>						 
 			                </div>
 			                <div>
 			                    <span>Repetir Senha</span>
-			                    <input type="text" name="senha2" required>						 
+			                    <input type="password" name="senha2" required>						 
 			                </div>
 			                
 			                <h3>ENDERECO</h3>

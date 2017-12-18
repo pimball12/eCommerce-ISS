@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!--A Design by W3layouts 
 Author: W3layout
@@ -63,8 +64,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="logo">
 					<h1><a href="${base_url}">Barata<span>Shop</span></a></h1>
 				</div>
-		 <!---->
-		 
 			<div class="top-nav">
 				<ul class="memenu skyblue">
 					<li class="grid"><a href="${base_url}">Início</a>
@@ -76,7 +75,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</ul>
 				<div class="clearfix"> </div>
 			</div>
-					<!---->
 					<div class="cart box_1">
 						<a href="${base_url}/cart"> 
 						<h3> <div class="total">
@@ -86,12 +84,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p><a href="${base_url}/cart" class="simpleCart_empty">Carrinho</a></p>  
 						<div class="clearfix"> </div>
 					</div>
-
+					<c:choose>
+					<c:when test="${usuario != null} }">
+					<div class="cart box_1">  
+					    <p><a href="http://localhost:8080/eCommerce-ISS/user/login" class="simpleCart_empty"><i class="glyphicon glyphicon-user"> </i>Login</a></p>
+					    <br>
+					    <p><a href="http://localhost:8080/eCommerce-ISS/user/create" class="simpleCart_empty"><i class="glyphicon glyphicon-lock"> </i>Cadastrar</a></p>
+					</div>
+					</c:when>
+					<c:otherwise>
 					<div class="cart box_1">  
 					    <p><a href="${base_url}/user/login" class="simpleCart_empty"><i class="glyphicon glyphicon-user"> </i>Login</a></p>
 					    <br> 
 					    <p><a href="${base_url}/user/create" class="simpleCart_empty"><i class="glyphicon glyphicon-lock"> </i>Cadastrar</a></p>
 					</div>
+					</c:otherwise>
+					</c:choose>	
 					
 
 <div class="clearfix"> </div>
