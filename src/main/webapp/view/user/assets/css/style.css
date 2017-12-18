@@ -2201,11 +2201,21 @@ li.ring-in img{
 	color: white;
 }
 
+.btn-cart-finish	{
+	padding: 1em;
+	background-color: rgb(255, 93, 86);
+	color: white;
+	cursor: pointer;
+	float: right;
+	border: none;
+	margin: 2em 0;	
+}
+
 .container-header	{
-	background-color: #ffdfddb3;
-	color: #ff5d56;
+	background-color: #ff352db3;
+    color: #fff;
 	padding: 0.2em;
-	text-align: center;
+	text-align: center; 
 }
 
 /*--responsive--*/

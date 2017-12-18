@@ -130,22 +130,23 @@
         <div class="col-md-12">
         	<h1 class="container-header">Dados de Pagamento</h1>
         	<div class="general-form-top">        	
-	           	<div class="col-md-5">
-	       			<span><h3>Rua</h3></span> 
-	       			<span><input type="text" name="rua" value="Rua Umuarama" /></span>
+	           	<div class="col-md-4">
+	       			<span><h3>Numero do Cartão (Apenas Números)</h3></span> 
+	       			<span><input name="num_cartao" type="text" value="0384572357345" /></span>
 	           	</div>
-	           	<div class="col-md-2 col-md-offset-1">
-	       			<span><h3>Número</h3></span>
-	       			<span><input type="text" name="numero" value="273" /></span>
+	           	<div class="col-md-3 col-md-offset-1">
+	       			<span><h3>Nome Impresso no Cartão</h3></span>
+	       			<span><input name="nome_cartao" type="text" name="numero" value="273" /></span>
 	           	</div>
 				<div class="col-md-3 col-md-offset-1">
-	       			<span><h3>Bairro</h3></span>
-	       			<span><input type="text" name="bairro" value="Zona 08" /></span>
+	       			<span><h3>Validade (MM/YYYY)</h3></span>
+	       			<span><input name="validade_cartao" type="text" name="bairro" value="10/2019" /></span>
 	           	</div>         	
 	           	<div class="clearfix"></div>
 	        </div>
+	        <a href="${base_url}/order/create" class="btn-cart-finish">CONCLUIR</a>
         </div>
-        <div class="clearfix"></div>
+        <div class="clearfix"></div> 
     </div>
 </div>
 
