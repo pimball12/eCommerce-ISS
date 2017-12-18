@@ -1884,7 +1884,8 @@ a.add-re:hover{
 	padding-bottom: 0.2em;
 	display: block;
 }
-.login-right input[type="text"] {
+.login-right input[type="text"],
+.login-right input[type="password"] {
 	border: 1px solid #000;
 	outline:none;
 	width: 100%;

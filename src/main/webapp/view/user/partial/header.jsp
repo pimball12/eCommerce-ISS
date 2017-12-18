@@ -88,9 +88,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 
 					<div class="cart box_1">  
-					    <p><a href="http://localhost:8080/eCommerce-ISS/user/login" class="simpleCart_empty"><i class="glyphicon glyphicon-user"> </i>Login</a></p>
-					    <br>
-					    <p><a href="http://localhost:8080/eCommerce-ISS/user/create" class="simpleCart_empty"><i class="glyphicon glyphicon-lock"> </i>Cadastrar</a></p>
+					    <p><a href="${base_url}/user/login" class="simpleCart_empty"><i class="glyphicon glyphicon-user"> </i>Login</a></p>
+					    <br> 
+					    <p><a href="${base_url}/user/create" class="simpleCart_empty"><i class="glyphicon glyphicon-lock"> </i>Cadastrar</a></p>
 					</div>
 					
 
