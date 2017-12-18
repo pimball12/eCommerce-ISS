@@ -22,7 +22,7 @@
                         </div>
                         <div>
                             <span>Senha</span>
-                            <input type="text" name="senha" required> 
+                            <input type="password" name="senha" required> 
                         </div>
                         <a class="forgot" href="#">Esqueci minha senha!</a>
                         <input type="submit" value="Logar">

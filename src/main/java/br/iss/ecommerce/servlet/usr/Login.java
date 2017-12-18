@@ -21,28 +21,4 @@ public class Login extends HttpServlet {
     	
 		request.getRequestDispatcher("/view/user/login.jsp").forward(request, response);
 	}
-    
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String login = request.getParameter("login");
-		String senha = request.getParameter("senha");
-		
-		UsuarioDAO usuarioDao = new UsuarioDAO();
-		String mensagemTexto, mensagemTipo, uri;
-		
-		boolean autenticado = usuarioDao.tryLogin(login, senha);
-				
-		if (autenticado) {
-			mensagemTexto = "Autenticado com sucesso!";
-			mensagemTipo = "success";
-			uri = "/user/main.jsp";
-		}else {
-			mensagemTexto = "Falha de Autenticacao!";
-			mensagemTipo = "error";
-			uri = "user/login.jsp";
-		}
-		request.getSession().setAttribute("flash_message_text", mensagemTexto);
-		request.getSession().setAttribute("flash_message_kind", mensagemTipo);
-		response.sendRedirect(request.getAttribute("base_url") + uri); 
-	}
 }
