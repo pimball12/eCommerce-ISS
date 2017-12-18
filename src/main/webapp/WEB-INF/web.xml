@@ -7,6 +7,6 @@
   </context-param>
   <context-param>
     <param-name>upload.location</param-name>
-    <param-value>D:\\JavaRes\\Ecommerce</param-value>
+    <param-value>C:\\JavaRes\\Ecommerce</param-value>
   </context-param>
 </web-app>
